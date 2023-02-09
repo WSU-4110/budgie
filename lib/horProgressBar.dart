@@ -8,17 +8,26 @@ class HorProgressBar extends StatefulWidget {
   _HorProgressBar createState() => _HorProgressBar();
 }
 
+// Testing
+const String thing1 = 'Test';
+const String thing2 = '_Test';
+
 class _HorProgressBar extends State<HorProgressBar> {
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Column(
-      children: [LinearPercentIndicator(
-        lineHeight: 20,
-        percent: .4,
-        progressColor: const Color.fromRGBO(34, 197, 94, 1),
-        backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
-      )],
-    )));
+        body: Container(
+            child: Center(
+                child: Column(
+      children: [
+        const Text('Food'),
+        LinearPercentIndicator(
+          lineHeight: 20,
+          percent: .4,
+          progressColor: const Color.fromRGBO(34, 197, 94, 1),
+          backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
+        )
+        const Text('300 0f 500'),
+      ],
+    ))));
   }
 }
