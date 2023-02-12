@@ -21,17 +21,26 @@ class _HorProgressBar extends State<HorProgressBar> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(category,
-              textAlign: TextAlign.left,
-              style:
-                  const TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(category,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 20))),
+          ),
           LinearPercentIndicator(
             lineHeight: 20,
             percent: percentHelper(progressAmt, totalProgress),
             progressColor: const Color.fromRGBO(34, 197, 94, 1),
             backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
           ),
-          Text('$progressAmt of $totalProgress', textAlign: TextAlign.left),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('\$$progressAmt of $totalProgress')),
+          ),
         ],
       )),
     );
