@@ -1,10 +1,18 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 String category = 'Food';
-String progressAmt = '100';
+String progressAmt = '300';
 String totalProgress = '500';
+
+// Calculates LinearPercentIndicator.percent
+double percentHelper(String dividend, String divisor) {
+  // Some text here
+  var intDividend = double.parse(dividend);
+  var intDivisor = double.parse(divisor);
+
+  return intDividend / intDivisor;
+}
 
 class HorProgressBar extends StatefulWidget {
   const HorProgressBar({Key? key}) : super(key: key);
@@ -39,19 +47,18 @@ class _HorProgressBar extends State<HorProgressBar> {
             alignment: Alignment.centerLeft,
             child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('\$$progressAmt of $totalProgress')),
-          ),
+                child: Row(
+                  children: [
+                    Text('\$$progressAmt',
+                        style: const TextStyle(fontWeight: FontWeight.w800)),
+                    Text(' of $totalProgress'),
+                  ],
+                )),
+          )
         ],
       )),
     );
   }
 }
 
-// Calculates LinearPercentIndicator.percent
-double percentHelper(String dividend, String divisor) {
-  // Some text here
-  var intDividend = double.parse(dividend);
-  var intDivisor = double.parse(divisor);
-
-  return intDividend / intDivisor;
-}
+// Text('\$$progressAmt of $totalProgress')),
