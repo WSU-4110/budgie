@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'horProgressBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,19 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        title: 'Budgie',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        ),
-        home: MyStatefulWidget(),
-      );
-    
+    return MaterialApp(
+      title: 'Budgie',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      ),
+      home: MyStatefulWidget(),
+    );
   }
 }
-
-
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({super.key});
@@ -31,37 +29,31 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final pages=[
+  final pages = [
     HomePage(),
     TipsPage(),
     SettingsPage(),
-
   ];
-  
+
   var selectedPage = 0;
- 
 
   void _onItemTapped(int index) {
     setState(() {
       selectedPage = index;
-
     });
   }
-  
-  @override
-  Widget build(BuildContext context)
-  
-   {
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Budgie'),
       ),
       body: pages.elementAt(selectedPage),
       bottomNavigationBar: BottomNavigationBar(
-        type:BottomNavigationBarType.fixed,
-        currentIndex:selectedPage,
-        items:  <BottomNavigationBarItem>[
+        type: BottomNavigationBarType.fixed,
+        currentIndex: selectedPage,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -76,55 +68,40 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         selectedItemColor: Colors.green[800],
-        onTap:(int index){
+        onTap: (int index) {
           setState(() {
             _onItemTapped(index);
           });
         },
       ),
     );
-}
+  }
 }
 
-
-class HomePage extends StatelessWidget{ //this is the homepage
+class HomePage extends StatelessWidget {
+  //this is the homepage
   @override
   Widget build(BuildContext context) {
-return Column(
-  children:[Text('This is a homepage')
-  ]
-);
+    return Column(children: [Text('This is a homepage')]);
   }
 }
 
-class TipsPage extends StatelessWidget{ //this is the tips page
+class TipsPage extends StatelessWidget {
+  //this is the tips page
   @override
   Widget build(BuildContext context) {
-
-    return Center(
-  child:Text('This is a tips page')
-);
-    
-      
+    return Center(child: Text('This is a tips page'));
   }
 }
 
-class SettingsPage extends StatelessWidget{ //this is the settings page
-  @override 
+class SettingsPage extends StatelessWidget {
+  //this is the settings page
+  @override
   Widget build(BuildContext context) {
-
-    return Scaffold( 
-appBar: AppBar(
-  title: Text("Settings"),
-),
-
-      body:Center(
-  child:Text('This is a settings page')
-)
-);
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Settings"),
+        ),
+        body: Center(child: Text('This is a settings page')));
   }
 }
-
-
-
-
