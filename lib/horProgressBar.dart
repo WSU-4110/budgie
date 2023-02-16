@@ -25,40 +25,42 @@ class _HorProgressBar extends State<HorProgressBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text(category,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 20))),
-          ),
-          LinearPercentIndicator(
-            lineHeight: 20,
-            percent: percentHelper(progressAmt, totalProgress),
-            progressColor: const Color.fromRGBO(34, 197, 94, 1),
-            backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
-          ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
+        body: Center(
+            child: Container(
+                margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('\$$progressAmt',
-                        style: const TextStyle(fontWeight: FontWeight.w800)),
-                    Text(' of $totalProgress'),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text(category,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w800, fontSize: 20))),
+                    ),
+                    LinearPercentIndicator(
+                      animateFromLastPercent: true,
+                      lineHeight: 20,
+                      percent: percentHelper(progressAmt, totalProgress),
+                      progressColor: const Color.fromRGBO(34, 197, 94, 1),
+                      backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text('\$$progressAmt',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w800)),
+                              Text(' of $totalProgress'),
+                            ],
+                          )),
+                    )
                   ],
-                )),
-          )
-        ],
-      )),
-    );
+                ))));
   }
 }
-
-// Text('\$$progressAmt of $totalProgress')),
