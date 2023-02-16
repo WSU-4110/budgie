@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'horProgressBar.dart';
+import 'package:budgie/horProgressBar.dart';
 
 void main() {
   runApp(MyApp());
