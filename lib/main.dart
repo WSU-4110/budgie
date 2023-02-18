@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
+import 'BudgetCircle/overallBudgetCircle.dart';
 
 void main() {
   runApp(MyApp());
@@ -78,13 +79,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 }
 
-class HomePage extends StatelessWidget {
+/*class HomePage extends StatelessWidget {
   //this is the homepage
+
   @override
   Widget build(BuildContext context) {
     return Column(children: [Text('This is a homepage')]);
   }
-}
+}*/
 
 class TipsPage extends StatelessWidget {
   //this is the tips page
