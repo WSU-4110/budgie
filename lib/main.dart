@@ -47,7 +47,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Budgie'),
+        centerTitle: false,
+        title: const Text(
+          'Budgie',
+          style: TextStyle(fontSize: 25),
+        ),
       ),
       body: pages.elementAt(selectedPage),
       bottomNavigationBar: BottomNavigationBar(
