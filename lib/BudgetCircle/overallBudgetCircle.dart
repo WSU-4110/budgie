@@ -20,14 +20,14 @@ class _BudgetCircleState extends State<HomePage> {
           radius: 100,
           lineWidth: 20,
           percent: ovProgress,
-          center: new Text(percentage + "%",
+          center: new Text(currentBud + "/" + totalBud,
           style: 
-          new TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0)
+          new TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0)
           ),
-          progressColor: Colors.grey,
-          backgroundColor: 
+          progressColor: const Color.fromRGBO(211, 211, 211, 1),
+          backgroundColor: colorChange(ovProgress),
+          ),
         ),
-      ),
-    );
+      );
   }
 }
