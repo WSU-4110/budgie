@@ -18,7 +18,7 @@ class HorProgressBar extends StatefulWidget {
   const HorProgressBar({Key? key}) : super(key: key);
 
   @override
-  State<HorProgressBar> createState() => _HorProgressBar();
+  _HorProgressBar createState() => _HorProgressBar();
 }
 
 class _HorProgressBar extends State<HorProgressBar> {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class BudgetCategoryPrice {
-  String currentCategoryPrice = '';
-  String totalCategoryPrice = '';
-  String categoryName = '';
+  int currentCategoryPrice = 0;
+  int totalCategoryPrice = 0;
 }
