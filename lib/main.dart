@@ -86,7 +86,31 @@ class HomePage extends StatelessWidget {
   //this is the homepage
   @override
   Widget build(BuildContext context) {
-    return Column(children: [Text('This is a homepage')]);
+    return Center(
+      child: Column(children: <Widget>[
+        Expanded(
+            child: Container(
+          margin: const EdgeInsets.all(1.0),
+          // width: 48.0,
+          height: 5.0,
+          child: const Center(child: Text("Progress circle goes here")),
+        )),
+        const Divider(
+          height: 40,
+          thickness: 5,
+          indent: 0,
+          endIndent: 0,
+          color: Colors.grey,
+        ),
+        Expanded(
+            child: Container(
+          margin: const EdgeInsets.all(1.0),
+          // width: 48.0,
+          height: 5.0,
+          child: const Center(child: Text("Progress bars go here")),
+        ))
+      ]),
+    );
   }
 }
 
