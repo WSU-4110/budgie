@@ -7,13 +7,12 @@ double currentBudget = 150;
 double ovProgress = 1 - (currentBudget / totalBudget);
 
 String currentBud = '$currentBudget';
-String totalBud = '$totalBudget';
 
 Color colorChange(double progress) {
-  if (progress >= .66 ){
+  if (progress >= .75 ){
     return Colors.red;
   }
-  else if (progress >= .33) {
+  else if (progress >= .50) {
     return Colors.yellow;
   }
   else {
