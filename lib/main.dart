@@ -50,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         centerTitle: false,
         title: const Text(
           'Budgie',
-          style: TextStyle(fontSize: 25),
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
       ),
       body: pages.elementAt(selectedPage),
@@ -101,6 +101,16 @@ class HomePage extends StatelessWidget {
           indent: 0,
           endIndent: 0,
           color: Colors.grey,
+        ),
+        Container(
+          padding: const EdgeInsets.only(left: 10),
+          child: const Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              "Breakdown",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
         ),
         Expanded(
             child: Container(
