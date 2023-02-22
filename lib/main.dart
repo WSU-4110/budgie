@@ -83,6 +83,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   //this is the homepage
   @override
   Widget build(BuildContext context) {
