@@ -1,3 +1,4 @@
+import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
@@ -92,17 +93,14 @@ class HomePage extends StatelessWidget {
       child: Column(children: <Widget>[
         Expanded(
             child: Container(
-                margin: const EdgeInsets.all(1.0),
-                // width: 48.0,
-                height: 5.0,
-                // child: const Center(child: Text("Progress circle goes here")),
+                margin: const EdgeInsets.all(5.5),
                 child: const OverBudgie())),
         const Divider(
           height: 40,
           thickness: 5,
           indent: 0,
           endIndent: 0,
-          color: Colors.grey,
+          color: Color.fromARGB(255, 222, 222, 222),
         ),
         Container(
           padding: const EdgeInsets.only(left: 10),
@@ -115,12 +113,27 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Expanded(
-            child: Container(
-          margin: const EdgeInsets.all(1.0),
-          // width: 48.0,
-          height: 5.0,
-          child: const Center(child: Text("Progress bars go here")),
-        ))
+            child:
+                ListView(
+                  padding: const EdgeInsets.all(5),
+                  children: const <Widget>[
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 30,
+                      child: Center(child: addButton())
+                    )
+        ])),
       ]),
     );
   }
