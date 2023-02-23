@@ -8,15 +8,17 @@ class SecondScreen extends StatelessWidget {
       title: "route",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("New Page"),
+          backgroundColor: Colors.green,
+          title: Text("Budget Name"),
         ),
         body: Center(
           child: ElevatedButton(
-            child: Text("Go Back"),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ), // RaisedButton
+              child: Text("Go Back"),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.green)), // RaisedButton
         ),
       ),
     );
