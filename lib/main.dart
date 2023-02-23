@@ -85,20 +85,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   //this is the homepage
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(children: <Widget>[
         Expanded(
             child: Container(
-          margin: const EdgeInsets.all(1.0),
-          // width: 48.0,
-          height: 5.0,
-          child: const Center(child: Text("Progress circle goes here")),
-        )),
+                margin: const EdgeInsets.all(1.0),
+                // width: 48.0,
+                height: 5.0,
+                // child: const Center(child: Text("Progress circle goes here")),
+                child: const OverBudgie())),
         const Divider(
           height: 40,
           thickness: 5,
