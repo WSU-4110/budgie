@@ -2,6 +2,8 @@ import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
+import 'package:settings_ui/settings_ui.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -155,6 +157,26 @@ class SettingsPage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Settings"),
         ),
-        body: Center(child: Text('This is a settings page')));
+        body: SettingsList(
+      sections: [
+        SettingsSection(
+          title: Text('Common'),
+          tiles: <SettingsTile>[
+            SettingsTile.navigation(
+              leading: Icon(Icons.language),
+              title: Text('Language'),
+              value: Text('English'),
+            ),
+            SettingsTile.switchTile(
+              onToggle: (value) {},
+              initialValue: true,
+              leading: Icon(Icons.format_paint),
+              title: Text('Enable custom theme'),
+            ),
+          ],
+        ),
+      ],
+    ),
+        );
   }
 }
