@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
+      darkTheme: ThemeData(brightness: Brightness.dark),
       home: MyStatefulWidget(),
     );
   }
@@ -91,9 +92,11 @@ class HomePage extends StatelessWidget {
   //this is the homepage
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(children: <Widget>[
+    return Scaffold(
+      resizeToAvoidBottomInset : false,
+      body: Column(children: <Widget>[
         Expanded(
+          
             child: Container(
                 margin: const EdgeInsets.all(5.5),
                 child: const OverBudgie())),
@@ -120,15 +123,15 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   children: const <Widget>[
                     SizedBox(
-                      height: 118,
+                      height: 119,
                       child: Center(child: HorProgressBar())
                     ),
                     SizedBox(
-                      height: 118,
+                      height: 119,
                       child: Center(child: HorProgressBar())
                     ),
                     SizedBox(
-                      height: 118,
+                      height: 119,
                       child: Center(child: HorProgressBar())
                     ),
                     SizedBox(
@@ -151,27 +154,28 @@ class TipsPage extends StatelessWidget {
 
 class SettingsPage extends StatelessWidget {
   //this is the settings page
+    bool isSwitched = false;
+
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Settings"),
-        ),
+       
         body: SettingsList(
       sections: [
         SettingsSection(
-          title: Text('Common'),
+          title: Text('Settings'),
           tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.language),
-              title: Text('Language'),
-              value: Text('English'),
-            ),
             SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: true,
+              initialValue: isSwitched,
+              onToggle: (value) {
+                setState((){
+                  isSwitched=value;
+                });
+              },
+
               leading: Icon(Icons.format_paint),
-              title: Text('Enable custom theme'),
+              title: Text('Use device theme'),
             ),
           ],
         ),
@@ -179,4 +183,6 @@ class SettingsPage extends StatelessWidget {
     ),
         );
   }
+  
+  void setState(Null Function() param0) {}
 }
