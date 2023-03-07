@@ -21,7 +21,7 @@ class _BudgetCircleState extends State<OverBudgie> {
           percent: ovProgress,
           center: new Text("\$" + currentBud,
           style: 
-          new TextStyle(fontWeight: FontWeight.bold, fontSize: 45.0)
+          new TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0)
           ),
           progressColor: const Color.fromRGBO(211, 211, 211, 1),
           backgroundColor: colorChange(ovProgress),

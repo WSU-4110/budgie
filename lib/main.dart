@@ -1,3 +1,4 @@
+import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
@@ -48,7 +49,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Budgie'),
+        centerTitle: false,
+        title: const Text(
+          'Budgie',
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
       ),
       body: pages.elementAt(selectedPage),
       bottomNavigationBar: BottomNavigationBar(
@@ -80,11 +85,57 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
   //this is the homepage
-
   @override
   Widget build(BuildContext context) {
-    return Column(children: [Text('This is a homepage')]);
+    return Center(
+      child: Column(children: <Widget>[
+        Expanded(
+            child: Container(
+                margin: const EdgeInsets.all(5.5),
+                child: const OverBudgie())),
+        const Divider(
+          height: 40,
+          thickness: 5,
+          indent: 0,
+          endIndent: 0,
+          color: Color.fromARGB(255, 222, 222, 222),
+        ),
+        Container(
+          padding: const EdgeInsets.only(left: 10),
+          child: const Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              "Breakdown",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+        ),
+        Expanded(
+            child:
+                ListView(
+                  padding: const EdgeInsets.all(5),
+                  children: const <Widget>[
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 118,
+                      child: Center(child: HorProgressBar())
+                    ),
+                    SizedBox(
+                      height: 30,
+                      child: Center(child: addButton())
+                    )
+        ])),
+      ]),
+    );
   }
 }
 
