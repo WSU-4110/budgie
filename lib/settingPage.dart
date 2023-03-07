@@ -1,17 +1,41 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:settings_ui/settings_ui.dart';
+
 
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+    bool isSwitched = false;
 
-  //this is the settings page
+  SettingsPage({super.key});
+
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Settings"),
+       
+        body: SettingsList(
+      sections: [
+        SettingsSection(
+          title: const Text('Settings'),
+          tiles: <SettingsTile>[
+            SettingsTile.switchTile(
+              initialValue: isSwitched,
+              onToggle: (value) {
+                setState((){
+                  isSwitched=value;
+                });
+              },
+
+              leading: const Icon(Icons.format_paint),
+              title: const Text('Use device theme'),
+            ),
+          ],
+        
         ),
-        body: const Center(child: Text('This is a settings page')));
+      ],
+    ),
+        );
   }
+  
+  void setState(Null Function() param0) {}
 }

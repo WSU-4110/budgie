@@ -2,11 +2,11 @@ import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
-import 'package:settings_ui/settings_ui.dart';
+import 'settingPage.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: MyStatefulWidget(),
+      home: const MyStatefulWidget(),
     );
   }
 }
@@ -34,13 +34,13 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final pages = [
-    HomePage(),
-    TipsPage(),
-    SettingsPage(),
+  List pages = [
+    const HomePage(),
+     TipsPage(),
+     SettingsPage(),
   ];
 
-  var selectedPage = 0;
+  int selectedPage = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -62,7 +62,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: selectedPage,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -148,41 +148,8 @@ class TipsPage extends StatelessWidget {
   //this is the tips page
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('This is a tips page'));
+    return const Center(child: Text('This is a tips page'));
   }
 }
 
-class SettingsPage extends StatelessWidget {
-  //this is the settings page
-    bool isSwitched = false;
 
-  @override
-
-  Widget build(BuildContext context) {
-    return Scaffold(
-       
-        body: SettingsList(
-      sections: [
-        SettingsSection(
-          title: Text('Settings'),
-          tiles: <SettingsTile>[
-            SettingsTile.switchTile(
-              initialValue: isSwitched,
-              onToggle: (value) {
-                setState((){
-                  isSwitched=value;
-                });
-              },
-
-              leading: Icon(Icons.format_paint),
-              title: Text('Use device theme'),
-            ),
-          ],
-        ),
-      ],
-    ),
-        );
-  }
-  
-  void setState(Null Function() param0) {}
-}
