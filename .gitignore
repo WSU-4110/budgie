@@ -1,5 +1,4 @@
 .DS_Store
-
 .dart_tool/
 build/
 pubspec.lock
