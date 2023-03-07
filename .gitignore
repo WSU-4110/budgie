@@ -2,3 +2,4 @@
 .dart_tool/
 build/
 pubspec.lock
+lib/firebase_options.dart
