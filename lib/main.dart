@@ -2,6 +2,7 @@ import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
+import 'package:budgie/articlesPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -143,7 +144,7 @@ class TipsPage extends StatelessWidget {
   //this is the tips page
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('This is a tips page'));
+    return const Center(child: ArticlesPage());
   }
 }
 
