@@ -30,6 +30,7 @@ class ArticlesPage extends StatelessWidget {
                       ),
                       child: Center(
                         child: ListView(
+                          physics: const NeverScrollableScrollPhysics(),
                           padding: const EdgeInsets.all(20.0),
                           shrinkWrap: true,
                           children: [
