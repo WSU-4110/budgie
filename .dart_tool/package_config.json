@@ -4,11 +4,13 @@
     {
       "name": "async",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/async-2.10.0",
+      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/async-2.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "boolean_selector",
+      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
