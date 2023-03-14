@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:budgie/BudgetCategories/expensesPage.dart';
+import 'package:budgie/ExpensesPage/expensesPage.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
-
-
-
 
 class HorProgressBar extends StatefulWidget {
   const HorProgressBar({Key? key}) : super(key: key);
@@ -53,7 +50,8 @@ class _HorProgressBar extends State<HorProgressBar> {
                         Text('\$$progressAmt',
                             style:
                                 const TextStyle(fontWeight: FontWeight.w800)),
-                        Text(' of $totalProgress'),
+                        Text(' of $totalProgress',
+                            style: const TextStyle(color: Colors.black87)),
                       ],
                     )),
               )
