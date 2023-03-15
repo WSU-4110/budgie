@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:settings_ui/settings_ui.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+
+import 'change_theme_button_widget.dart';
 
 
 
@@ -11,31 +13,52 @@ class SettingsPage extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    return Scaffold(
-       
-        body: SettingsList(
-      sections: [
-        SettingsSection(
-          title: const Text('Settings'),
-          tiles: <SettingsTile>[
-            SettingsTile.switchTile(
-              initialValue: isSwitched,
-              onToggle: (value) {
-                setState((){
-                  isSwitched=value;
-                });
-              },
 
-              leading: const Icon(Icons.format_paint),
-              title: const Text('Use device theme'),
-            ),
+    return  Scaffold(
+      body:SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(24),
+          children: [
+            SettingsGroup(
+              title:'Settings',
+              children:
+              <Widget>[
+                
+
+                buildLogout(),
+                buildDeleteAccount(),darkmode(),
+                  ChangeThemeButtonWidget(),
+              ],
+           ),
+           
+            
           ],
-        
-        ),
-      ],
-    ),
+        )
+      )
+
         );
   }
-  
-  void setState(Null Function() param0) {}
 }
+
+Widget buildLogout()=>SimpleSettingsTile(
+  title:'Logout',
+  subtitle: '',
+  leading:const Icon(Icons.logout)
+
+);
+
+Widget buildDeleteAccount()=>SimpleSettingsTile(
+  title:'Delete Account',
+  subtitle: '',
+  leading:const Icon(Icons.delete)
+
+);
+
+Widget darkmode()=>SimpleSettingsTile(
+  title:'Dark Mode',
+  subtitle: '',
+  leading:const Icon(Icons.dark_mode),
+
+
+
+);

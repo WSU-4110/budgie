@@ -5,7 +5,8 @@ import 'BudgetCircle/overallBudgetCircle.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'settingPage.dart';
-
+import 'theme_provider.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -25,17 +26,24 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>ChangeNotifierProvider( 
+    create:(context)=>ThemeProvider(),
+    builder: (context,_){
+      final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       title: 'Budgie',
+      
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
+      themeMode:themeProvider.thememode,
+      
       darkTheme: ThemeData(brightness: Brightness.dark),
       home: const MyStatefulWidget(),
     );
-  }
+  },
+  );
 }
 
 class MyStatefulWidget extends StatefulWidget {
