@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
 import 'package:budgie/ExpensesPage/expensesContainer.dart';
+import 'package:sticky_headers/sticky_headers.dart';
 
 class ExpensesPage extends StatelessWidget {
   @override
@@ -23,6 +24,7 @@ class ExpensesPage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
+          // Horizontal progress bar
           body: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -54,6 +56,7 @@ class ExpensesPage extends StatelessWidget {
                   endIndent: 0,
                   color: Color.fromARGB(255, 222, 222, 222),
                 ),
+                // List View
                 Container(
                   padding: const EdgeInsets.only(left: 10),
                   child: const Align(
@@ -70,7 +73,15 @@ class ExpensesPage extends StatelessWidget {
                         padding: const EdgeInsets.all(12.0),
                         child: ListView(children: [
                           // ExpensesContainer(),
-                           SizedBox(height: 50, child: Center(child: ExpensesContainer())),
+                          Container(
+                              height: 44,
+                              child: Center(child: ExpensesContainer())),
+                          Container(
+                              height: 44,
+                              child: Center(child: ExpensesContainer())),
+                          Container(
+                              height: 44,
+                              child: Center(child: ExpensesContainer())),
                           const Divider(
                             height: 40,
                             thickness: 5,
@@ -110,14 +121,7 @@ class ExpensesPage extends StatelessWidget {
                             ],
                           ),
                         ]))),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: const Text("Temporary Back Button"),
-                ), // RaisedButton
+// RaisedButton
               ])),
     );
   }

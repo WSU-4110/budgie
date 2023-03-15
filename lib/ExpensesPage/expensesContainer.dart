@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/ExpensesPage/expensesPageClass.dart';
 
+
 class ExpensesContainer extends StatefulWidget {
   const ExpensesContainer({Key? key}) : super(key: key);
 
@@ -12,9 +13,7 @@ class ExpensesContainer extends StatefulWidget {
 class _ExpensesContainer extends State<ExpensesContainer> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Expense Widget',
-      home: Scaffold(
+    return Scaffold(
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -30,7 +29,6 @@ class _ExpensesContainer extends State<ExpensesContainer> {
                 style: const TextStyle(color: Colors.red, fontSize: 16))
           ],
         ),
-      ),
     );
   }
 }

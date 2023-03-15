@@ -4,13 +4,11 @@
     {
       "name": "async",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/async-2.10.0",
-      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/async-2.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "boolean_selector",
-      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
@@ -154,6 +152,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "sticky_headers",
+      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/sticky_headers-0.3.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "stream_channel",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/stream_channel-2.1.1",
       "packageUri": "lib/",
@@ -190,7 +194,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-10T23:44:00.558270Z",
+  "generated": "2023-03-14T02:07:55.207496Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }
