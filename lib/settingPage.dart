@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
-import 'change_theme_button_widget.dart';
+import 'themeUtil/change_theme_button_widget.dart';
 
 
 
@@ -25,7 +25,7 @@ class SettingsPage extends StatelessWidget {
           padding: const EdgeInsets.all(24),
           children: [
             SettingsGroup(
-              title:'Settings',
+              title:'Account Settings',
               children:
               <Widget>[
                 buildLogout(),

@@ -5,7 +5,7 @@ import 'BudgetCircle/overallBudgetCircle.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'settingPage.dart';
-import 'theme_provider.dart';
+import 'themeUtil/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 
