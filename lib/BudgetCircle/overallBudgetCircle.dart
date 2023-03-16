@@ -18,13 +18,14 @@ class _BudgetCircleState extends State<OverBudgie> {
           animation: false,
           radius: 100,
           lineWidth: 20,
-          percent: ovProgress,
+          percent: ovProgress(totalBudget, currentBudget),
           center: new Text("\$" + currentBud,
           style: 
           new TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0)
           ),
-          progressColor: const Color.fromRGBO(211, 211, 211, 1),
-          backgroundColor: colorChange(ovProgress),
+          circularStrokeCap: CircularStrokeCap.round,
+          backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
+          progressColor: colorChange(ovProgress(totalBudget, currentBudget)),
           ),
         ),
       );

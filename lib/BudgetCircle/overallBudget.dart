@@ -4,18 +4,23 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 double totalBudget = 600;
 double currentBudget = 150;
 
-double ovProgress = 1 - (currentBudget / totalBudget);
-
 String currentBud = '$currentBudget';
 
-Color colorChange(double progress) {
-  if (progress >= .75 ){
-    return Colors.red;
+ovProgress(double totalBud, double currentBud) {
+  double progress = 0;
+  
+  if (totalBud <= 0) {
+    return progress;
   }
-  else if (progress >= .50) {
-    return Colors.yellow;
+
+  else{
+    progress = (currentBud / totalBud);
+    return progress;
   }
-  else {
-    return Colors.green;
-  }
+}
+
+Color colorChange(double prog) {
+  if (prog <= .33 ){ return Colors.red; }
+  else if (prog <= .66) { return Colors.yellow; }
+  else { return Colors.green; }
 }
