@@ -15,6 +15,11 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return  Scaffold(
+      appBar: AppBar(
+        title: const Text("Dark Mode"),
+       actions:[ ChangeThemeButtonWidget(),
+       ]
+      ),
       body:SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(24),
@@ -23,11 +28,8 @@ class SettingsPage extends StatelessWidget {
               title:'Settings',
               children:
               <Widget>[
-                
-
                 buildLogout(),
-                buildDeleteAccount(),darkmode(),
-                  ChangeThemeButtonWidget(),
+                buildDeleteAccount(),
               ],
            ),
            
@@ -54,11 +56,3 @@ Widget buildDeleteAccount()=>SimpleSettingsTile(
 
 );
 
-Widget darkmode()=>SimpleSettingsTile(
-  title:'Dark Mode',
-  subtitle: '',
-  leading:const Icon(Icons.dark_mode),
-
-
-
-);
