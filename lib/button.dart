@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:budgie/SecondPage.dart';
 
-void main() {
+/* void main() {
   runApp(MaterialApp(
     title: 'route',
-    home: MyApp(),
+    home: _addButton(),
   ));
+} */
+
+class addButton extends StatefulWidget {
+  const addButton({Key? key}) : super(key: key);
+
+  @override
+  _addButton createState() => _addButton();
 }
 
-class MyApp extends StatelessWidget {
+class _addButton extends State<addButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         title: Text("Budgie"),
-      ),
+      ), */
       body: Center(
         child: ElevatedButton(
-          child: Text("Add a new budget"),
+          child: Text(
+            "Add New Budget",
+            style: TextStyle(color: Colors.white),
+          ),
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => PageforName()));
           },
+          style: ElevatedButton.styleFrom(primary: Colors.green),
         ), // RaisedButton
       ),
     );
