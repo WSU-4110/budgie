@@ -88,8 +88,13 @@ file:///Users/jaynama/.pub-cache/hosted/pub.dev/vector_math-2.1.4/
 file:///Users/jaynama/.pub-cache/hosted/pub.dev/vector_math-2.1.4/lib/
 budgie
 2.19
+<<<<<<< Updated upstream
 file:///Users/jaynama/budgie-1/
 file:///Users/jaynama/budgie-1/lib/
+=======
+file:///Users/jaynama/Documents/GitHub/budgie/
+file:///Users/jaynama/Documents/GitHub/budgie/lib/
+>>>>>>> Stashed changes
 sky_engine
 2.12
 file:///Users/jaynama/flutter/bin/cache/pkg/sky_engine/
