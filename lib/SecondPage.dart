@@ -100,6 +100,21 @@ class PageForCost extends StatelessWidget {
               },
             ),
           ],
+    return MaterialApp(
+      title: "route",
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: Text("Budget Name"),
+        ),
+        body: Center(
+          child: ElevatedButton(
+              child: Text("Go Back"),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.green)), // RaisedButton
         ),
       ),
     );
