@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text("Go to second page"),
+          child: Text("Add a new budget"),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SecondScreen()));
+                MaterialPageRoute(builder: (context) => PageforName()));
           },
         ), // RaisedButton
       ),
