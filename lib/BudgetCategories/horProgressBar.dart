@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:budgie/BudgetCategories/expensesPage.dart';
-
-String category = 'Food';
-String progressAmt = '300';
-String totalProgress = '500';
-
-// Calculates LinearPercentIndicator.percent
-double percentHelper(String dividend, String divisor) {
-  // Some text here
-  var intDividend = double.parse(dividend);
-  var intDivisor = double.parse(divisor);
-
-  return intDividend / intDivisor;
-}
+import 'package:budgie/ExpensesPage/expensesPage.dart';
+import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
 
 class HorProgressBar extends StatefulWidget {
   const HorProgressBar({Key? key}) : super(key: key);
@@ -50,7 +38,7 @@ class _HorProgressBar extends State<HorProgressBar> {
                 animateFromLastPercent: true,
                 lineHeight: 20,
                 percent: percentHelper(progressAmt, totalProgress),
-                progressColor: const Color.fromRGBO(34, 197, 94, 1),
+                progressColor: dynamicColor(progressAmt, totalProgress),
                 backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
               ),
               Align(
@@ -62,7 +50,8 @@ class _HorProgressBar extends State<HorProgressBar> {
                         Text('\$$progressAmt',
                             style:
                                 const TextStyle(fontWeight: FontWeight.w800)),
-                        Text(' of $totalProgress'),
+                        Text(' of $totalProgress',
+                            style: const TextStyle(color: Colors.black87)),
                       ],
                     )),
               )

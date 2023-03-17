@@ -152,6 +152,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "sticky_headers",
+      "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/sticky_headers-0.3.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "stream_channel",
       "rootUri": "file:///Users/thenamesoak/.pub-cache/hosted/pub.dev/stream_channel-2.1.1",
       "packageUri": "lib/",
@@ -188,7 +194,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-07T01:01:56.696492Z",
+  "generated": "2023-03-14T02:07:55.207496Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }
