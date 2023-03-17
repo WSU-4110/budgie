@@ -15,7 +15,9 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+
     name:'budgie',
+
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -118,8 +120,7 @@ class HomePage extends StatelessWidget {
         Expanded(
           
             child: Container(
-                margin: const EdgeInsets.all(5.5),
-                child: const OverBudgie())),
+                margin: const EdgeInsets.all(5.5), child: const OverBudgie())),
         const Divider(
           height: 40,
           thickness: 5,
@@ -138,27 +139,16 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Expanded(
-            child:
-                ListView(
-                  padding: const EdgeInsets.all(5),
-                  children: const <Widget>[
-                    SizedBox(
-                      height: 119,
-                      child: Center(child: HorProgressBar())
-                    ),
-                    SizedBox(
-                      height: 119,
-                      child: Center(child: HorProgressBar())
-                    ),
-                    SizedBox(
-                      height: 119,
-                      child: Center(child: HorProgressBar())
-                    ),
-                    SizedBox(
-                      height: 30,
-                      child: Center(child: addButton())
-                    )
-        ])),
+
+            child: ListView(
+                padding: const EdgeInsets.all(5),
+                children: const <Widget>[
+              SizedBox(height: 118, child: Center(child: HorProgressBar())),
+              SizedBox(height: 118, child: Center(child: HorProgressBar())),
+              SizedBox(height: 118, child: Center(child: HorProgressBar())),
+              SizedBox(height: 30, child: Center(child: addButton()))
+            ])),
+
       ]),
     );
   }
