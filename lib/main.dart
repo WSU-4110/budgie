@@ -4,13 +4,23 @@ import 'BudgetCategories/horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'settingPage.dart';
+import 'themeUtil/theme_provider.dart';
+import 'package:provider/provider.dart';
+
+
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: 'budgie',
+
+    name:'budgie',
+
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
@@ -18,16 +28,24 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>ChangeNotifierProvider( 
+    create:(context)=>ThemeProvider(),
+    builder: (context,_){
+      final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       title: 'Budgie',
+      
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
-      home: MyStatefulWidget(),
+      themeMode:themeProvider.thememode,
+      
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      home: const MyStatefulWidget(),
     );
-  }
+  },
+  );
 }
 
 class MyStatefulWidget extends StatefulWidget {
@@ -38,13 +56,13 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final pages = [
-    HomePage(),
-    TipsPage(),
-    SettingsPage(),
+  List pages = [
+    const HomePage(),
+     TipsPage(),
+     SettingsPage(),
   ];
 
-  var selectedPage = 0;
+  int selectedPage = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -66,7 +84,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: selectedPage,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -96,9 +114,11 @@ class HomePage extends StatelessWidget {
   //this is the homepage
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(children: <Widget>[
+    return Scaffold(
+      resizeToAvoidBottomInset : false,
+      body: Column(children: <Widget>[
         Expanded(
+          
             child: Container(
                 margin: const EdgeInsets.all(5.5), child: const OverBudgie())),
         const Divider(
@@ -119,6 +139,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Expanded(
+
             child: ListView(
                 padding: const EdgeInsets.all(5),
                 children: const <Widget>[
@@ -127,6 +148,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 30, child: Center(child: addButton()))
             ])),
+
       ]),
     );
   }
@@ -136,18 +158,8 @@ class TipsPage extends StatelessWidget {
   //this is the tips page
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('This is a tips page'));
+    return const Center(child: Text('This is a tips page'));
   }
 }
 
-class SettingsPage extends StatelessWidget {
-  //this is the settings page
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Settings"),
-        ),
-        body: Center(child: Text('This is a settings page')));
-  }
-}
+
