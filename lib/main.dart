@@ -1,3 +1,4 @@
+import 'package:budgie/BudgetCategories/Builder/budget_category_price.dart';
 import 'package:budgie/button.dart';
 import 'package:flutter/material.dart';
 import 'BudgetCategories/horProgressBar.dart';
@@ -8,44 +9,39 @@ import 'settingPage.dart';
 import 'themeUtil/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-
-
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-
-    name:'budgie',
-
+    name: 'budgie',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(const MyApp());
+
+  //Sets the default parameters for the horizontal progress bar
+  var budgetBuilder = BudgetTrackerBuilder('Food', 200, 500);
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) =>ChangeNotifierProvider( 
-    create:(context)=>ThemeProvider(),
-    builder: (context,_){
-      final themeProvider = Provider.of<ThemeProvider>(context);
-    return MaterialApp(
-      title: 'Budgie',
-      
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-      ),
-      themeMode:themeProvider.thememode,
-      
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const MyStatefulWidget(),
-    );
-  },
-  );
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
+          return MaterialApp(
+            title: 'Budgie',
+            theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+            ),
+            themeMode: themeProvider.thememode,
+            darkTheme: ThemeData(brightness: Brightness.dark),
+            home: const MyStatefulWidget(),
+          );
+        },
+      );
 }
 
 class MyStatefulWidget extends StatefulWidget {
@@ -58,8 +54,8 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   List pages = [
     const HomePage(),
-     TipsPage(),
-     SettingsPage(),
+    TipsPage(),
+    SettingsPage(),
   ];
 
   int selectedPage = 0;
@@ -115,10 +111,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset : false,
+      resizeToAvoidBottomInset: false,
       body: Column(children: <Widget>[
         Expanded(
-          
             child: Container(
                 margin: const EdgeInsets.all(5.5), child: const OverBudgie())),
         const Divider(
@@ -139,7 +134,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Expanded(
-
             child: ListView(
                 padding: const EdgeInsets.all(5),
                 children: const <Widget>[
@@ -148,7 +142,6 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 30, child: Center(child: addButton()))
             ])),
-
       ]),
     );
   }
@@ -161,5 +154,3 @@ class TipsPage extends StatelessWidget {
     return const Center(child: Text('This is a tips page'));
   }
 }
-
-
