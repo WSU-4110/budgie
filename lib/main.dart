@@ -149,11 +149,8 @@ class HomePage extends StatelessWidget {
 class TipsPage extends StatelessWidget {
   //this is the tips page
   @override
-  /*Widget build(BuildContext context) {
-    return Center(child: Text('This is a tips page'));
-  }*/
   Widget build(BuildContext context) {
-    return Center(child: expenseForm());
+    return Center(child: Text('This is a tips page'));
   }
 }
 
