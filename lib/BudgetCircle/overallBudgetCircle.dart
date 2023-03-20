@@ -19,7 +19,7 @@ class _BudgetCircleState extends State<OverBudgie> {
           radius: 100,
           lineWidth: 20,
           percent: ovProgress(totalBudget, currentBudget),
-          center: new Text("\$" + currentBud,
+          center: new Text("\$" + currentBudgie,
           style: 
           new TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0)
           ),

@@ -4,6 +4,7 @@ import 'BudgetCategories/horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'BudgetCategories/expenseForm.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -148,8 +149,11 @@ class HomePage extends StatelessWidget {
 class TipsPage extends StatelessWidget {
   //this is the tips page
   @override
-  Widget build(BuildContext context) {
+  /*Widget build(BuildContext context) {
     return Center(child: Text('This is a tips page'));
+  }*/
+  Widget build(BuildContext context) {
+    return Center(child: expenseForm());
   }
 }
 
