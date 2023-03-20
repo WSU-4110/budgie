@@ -20,7 +20,7 @@ ovProgress(double totalBud, double currentBud) {
 }
 
 Color colorChange(double prog) {
-  if (prog <= .15 ){ return Colors.red; }
-  else if (prog <= .50) { return Colors.yellow; }
+  if (prog <= .15 ){ return const Color.fromRGBO(225, 55, 43, 1); }
+  else if (prog <= .50) { return const Color.fromRGBO(255, 217, 102, 1); }
   else { return const Color.fromRGBO(34, 197, 94, 1);}
 }
