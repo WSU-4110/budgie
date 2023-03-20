@@ -1,6 +1,7 @@
 .DS_Store
-/build
-.dart_tool/flutter_build
-.dart_tool/package_config.json
-.dart_tool/package_config_subset
-.dart_tool/package_config.json
+.dart_tool/
+build/
+pubspec.lock
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
