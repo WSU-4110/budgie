@@ -1,19 +1,23 @@
-import 'package:budgie/BudgetCircle/overallBudget.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class OverBudgie extends StatefulWidget {
   const OverBudgie({Key? key}) : super(key: key);
   @override
-  _BudgetCircleState createState() => _BudgetCircleState();
+  _BudgetCircleState createState() => _BudgetCircleState.instance;
 }
 
 class _BudgetCircleState extends State<OverBudgie> {
-  //for now, these are just static variable, but in the future, they will be calculated from the Budget Categories
+
+  //The two following lines of code will ensure that when the OverBudgie class is called, it will always call the same instance.
+  _BudgetCircleState._(); //private constructor
+  static final instance = _BudgetCircleState._();
+
+  //for now, these are just static variables, but in the future, they will be calculated from the Budget Categories
   double totalBudget = 600;
   double currentBudget = 90;
 
-  String currentBudgie = '$currentBudget'; 
+  late String currentBudgie = '$currentBudget'; 
 
    ovProgress(double totalBud, double currentBud) {
   double progress = 0;
