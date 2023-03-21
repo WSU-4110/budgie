@@ -2,6 +2,7 @@ import 'package:budgie/BudgetButton/button.dart';
 import 'package:flutter/material.dart';
 import 'BudgetCategories/horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
+import 'articlesPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'settingPage.dart';
@@ -11,9 +12,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: 'budgie',
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+      name: 'budgie', options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -50,7 +49,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   List pages = [
     const HomePage(),
-    TipsPage(),
+    const ArticlesPage(),
     SettingsPage(),
   ];
 
@@ -140,13 +139,5 @@ class HomePage extends StatelessWidget {
             ])),
       ]),
     );
-  }
-}
-
-class TipsPage extends StatelessWidget {
-  //this is the tips page
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('This is a tips page'));
   }
 }
