@@ -1,7 +1,5 @@
-import 'package:budgie/BudgetCircle/overallBudget.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'overallBudget.dart';
 
 class OverBudgie extends StatefulWidget {
   const OverBudgie({Key? key}) : super(key: key);
@@ -11,6 +9,30 @@ class OverBudgie extends StatefulWidget {
 }
 
 class _BudgetCircleState extends State<OverBudgie> {
+  double totalBudget = 600;
+  double currentBudget = 90;
+
+  late String currentBudgie = '$currentBudget';
+
+  ovProgress(double totalBud, double currentBud) {
+    double progress = 0;
+    
+    if (totalBud <= 0) {
+      return progress;
+    }
+
+    else{
+      progress = (currentBud / totalBud);
+      return progress;
+    }
+  }
+
+  Color colorChange(double prog) {
+    if (prog <= .15 ){ return const Color.fromRGBO(225, 55, 43, 1); }
+    else if (prog <= .50) { return const Color.fromRGBO(255, 217, 102, 1); }
+    else { return const Color.fromRGBO(34, 197, 94, 1);}
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(

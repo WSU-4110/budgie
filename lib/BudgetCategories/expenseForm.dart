@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class expenseForm extends StatefulWidget {
+class ExpenseForm extends StatefulWidget {
+  const ExpenseForm({super.key});
   
   @override
-  expenseFormState createState() {
-    return expenseFormState();
-  }
+  State<ExpenseForm> createState() =>  ExpenseFormState();
 }
 
-class expenseFormState extends State<expenseForm> {
+class ExpenseFormState extends State<ExpenseForm> {
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController expenseName = TextEditingController();
+  TextEditingController expenseCost = TextEditingController();
+  TextEditingController expenseDate = TextEditingController();
+
+  RegExp digitValidator = RegExp("[0-9]+");
+  bool isANumber = true;
+
+  @override
+  void dispose() {
+    expenseName.dispose();
+    expenseCost.dispose();
+    expenseDate.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +38,14 @@ class expenseFormState extends State<expenseForm> {
               icon: const Icon(Icons.assignment_outlined),    
               hintText: 'Enter the Name of the Expense',  
               labelText: 'Name',  
-            ),  
+            ),
             validator: (value) {  
               if (value == null || value.isEmpty) {  
                 return 'Please enter some text';  
               }
               return null;  
-            },  
+            },
+            controller: expenseName,   
           ),  
           TextFormField( 
             keyboardType: TextInputType.number, 
@@ -43,7 +59,8 @@ class expenseFormState extends State<expenseForm> {
                 return 'Please enter a valid number';  
               } 
               return null;  
-            },  
+            },
+            controller: expenseCost,   
           ),  
           TextFormField(  
             decoration: const InputDecoration(  
@@ -52,31 +69,40 @@ class expenseFormState extends State<expenseForm> {
             labelText: 'Select Date',  
             ),  
             onTap: () async{
+              FocusScope.of(context).requestFocus(new FocusNode());
+
               DateTime? pickeddate = await showDatePicker(
                 context: context, 
                 initialDate: DateTime.now(),
                 firstDate: DateTime(2000),
                 lastDate: DateTime(2101)
                 );
+
+                if (pickeddate != null) {
+                  setState(() {
+                    expenseDate.text = DateFormat.yMd().format(pickeddate);
+                  });
+                }
             },
             validator: (value) {  
               if (value == null || value.isEmpty) {  
                 return 'Please enter valid date';  
               }  
               return null;  
-            },  
+            },
+            controller: expenseDate,   
            ),  
           new Container(  
               padding: const EdgeInsets.only(left: 150.0, top: 40.0),  
               child: new ElevatedButton(  
                 child: const Text('Submit'),  
-                onPressed: () {  
-                  // It returns true if the form is valid, otherwise returns false  
-                  if (_formKey.currentState!.validate()) {  
-                    // If the form is valid, display a Snackbar.  
-                    ScaffoldMessenger.of(context)  
-                        .showSnackBar(const SnackBar(content: Text('Data is in processing.')));  
-                  }  
+                onPressed: () {
+                  showDialog(
+                    context: context, 
+                    builder: (context) {
+                      return AlertDialog(content: Text(expenseName.text + expenseCost.text + expenseDate.text));
+                    },
+                  );
                 },  
               )),  
         ],  
