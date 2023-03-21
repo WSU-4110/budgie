@@ -17,8 +17,8 @@ class _HorProgressBar extends State<HorProgressBar> {
         body: Center(
             child: InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ExpensesPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ExpensesPage()));
       },
       child: Container(
           margin: const EdgeInsets.all(8.0),
@@ -50,8 +50,7 @@ class _HorProgressBar extends State<HorProgressBar> {
                         Text('\$$progressAmt',
                             style:
                                 const TextStyle(fontWeight: FontWeight.w800)),
-                        Text(' of $totalProgress',
-                            style: const TextStyle(color: Colors.black87)),
+                        Text(' of $totalProgress'),
                       ],
                     )),
               )
