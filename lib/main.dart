@@ -48,7 +48,8 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   List pages = [
-    const HomePage(),
+    HomePage(), // instance of home page
+
     const ArticlesPage(),
     SettingsPage(),
   ];
@@ -101,7 +102,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  // HomePage instance manager
+  HomePage? instance = null;
+
+  HomePage? getHomePage() {
+    instance ??= HomePage();
+
+    return instance;
+  }
+
   //this is the homepage
   @override
   Widget build(BuildContext context) {
@@ -141,4 +150,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
