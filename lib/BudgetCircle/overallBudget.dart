@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-double totalBudget = 600;
-double currentBudget = 150;
-
-double ovProgress = 1 - (currentBudget / totalBudget);
-
-String currentBud = '$currentBudget';
-
-Color colorChange(double progress) {
-  if (progress >= .75 ){
-    return Colors.red;
+/*ovProgress(double totalBud, double currentBud) {
+  double progress = 0;
+  
+  if (totalBud <= 0) {
+    return progress;
   }
-  else if (progress >= .50) {
-    return Colors.yellow;
+
+  else{
+    progress = (currentBud / totalBud);
+    return progress;
   }
-  else {
-    return Colors.green;
-  }
-}
+}*/
+
+/*Color colorChange(double prog) {
+  if (prog <= .15 ){ return const Color.fromRGBO(225, 55, 43, 1); }
+  else if (prog <= .50) { return const Color.fromRGBO(255, 217, 102, 1); }
+  else { return const Color.fromRGBO(34, 197, 94, 1);}
+}*/
