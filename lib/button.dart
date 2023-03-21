@@ -1,27 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:budgie/SecondPage.dart';
 
-/* void main() {
+void main() {
   runApp(MaterialApp(
     title: 'route',
-    home: _addButton(),
+    home: AddButton(),
   ));
-} */
-
-class addButton extends StatefulWidget {
-  const addButton({Key? key}) : super(key: key);
-
-  @override
-  _addButton createState() => _addButton();
 }
 
-class _addButton extends State<addButton> {
-  @override
+class AddButton extends StatelessWidget {
+  const AddButton({Key? key}) : super(key: key);
+
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        title: Text("Budgie"),
-      ), */
       body: Center(
         child: ElevatedButton(
           child: Text(
@@ -30,7 +21,7 @@ class _addButton extends State<addButton> {
           ),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SecondScreen()));
+                MaterialPageRoute(builder: (context) => PageForName()));
           },
           style: ElevatedButton.styleFrom(primary: Colors.green),
         ), // RaisedButton
