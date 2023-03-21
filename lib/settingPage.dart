@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
-import 'change_theme_button_widget.dart';
+import 'themeUtil/change_theme_button_widget.dart';
 
 
 
@@ -15,19 +15,21 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return  Scaffold(
+      appBar: AppBar(
+        title: const Text("Dark Mode"),
+       actions:[ ChangeThemeButtonWidget(),
+       ]
+      ),
       body:SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(24),
           children: [
             SettingsGroup(
-              title:'Settings',
+              title:'Account Settings',
               children:
               <Widget>[
-                
-
                 buildLogout(),
-                buildDeleteAccount(),darkmode(),
-                  ChangeThemeButtonWidget(),
+                buildDeleteAccount(),
               ],
            ),
            
@@ -54,11 +56,3 @@ Widget buildDeleteAccount()=>SimpleSettingsTile(
 
 );
 
-Widget darkmode()=>SimpleSettingsTile(
-  title:'Dark Mode',
-  subtitle: '',
-  leading:const Icon(Icons.dark_mode),
-
-
-
-);
