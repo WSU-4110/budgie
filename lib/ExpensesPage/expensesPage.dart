@@ -1,3 +1,4 @@
+import 'package:budgie/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -114,6 +115,23 @@ class ExpensesPage extends StatelessWidget {
                         ],
                       ),
                     ]))),
+            Padding(
+              padding: EdgeInsets.only(top: 24, bottom: 24),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomePage())); // Will be used for Expense Form
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.green),
+                child: Text(
+                  "Add New Expense",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
           ]),
     );
   }
