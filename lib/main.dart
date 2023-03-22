@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 30, child: Center(child: addButton()))
+              SizedBox(height: 30, child: Center(child: AddButton()))
             ])),
       ]),
     );

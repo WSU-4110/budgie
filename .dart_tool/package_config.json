@@ -111,7 +111,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///Users/jaynama/Desktop/SemProject/flutter/packages/flutter",
+      "rootUri": "file:///Users/jaynama/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -135,13 +135,13 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///Users/jaynama/Desktop/SemProject/flutter/packages/flutter_test",
+      "rootUri": "file:///Users/jaynama/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///Users/jaynama/Desktop/SemProject/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///Users/jaynama/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -333,7 +333,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///Users/jaynama/Desktop/SemProject/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///Users/jaynama/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -428,7 +428,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-17T23:13:06.088523Z",
+  "generated": "2023-03-21T22:52:10.211787Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }
