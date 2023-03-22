@@ -45,6 +45,7 @@ dependencies:
   flutter_settings_screens: ^0.3.3-null-safety+2
 
   sticky_headers: "^0.3.0"
+  cloud_firestore: ^4.4.5
 
 
 dev_dependencies:
