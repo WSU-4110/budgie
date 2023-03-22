@@ -5,6 +5,9 @@ import 'BudgetCircle/overallBudgetCircle.dart';
 import 'articlesPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'settingPage.dart';
+import 'themeUtil/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -132,7 +135,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 30, child: Center(child: addButton()))
+              //SizedBox(height: 30, child: Center(child: addButton()))
             ])),
       ]),
     );
