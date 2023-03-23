@@ -7,7 +7,7 @@ class CloudBudget {
   final String documentId;
   final String name;
   final double cost;
-  final String date;
+  final DateTime date;
 
   const CloudBudget({
     required this.documentId,
