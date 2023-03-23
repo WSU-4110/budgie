@@ -5,6 +5,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
 import 'package:budgie/ExpensesPage/expensesContainer.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
 class ExpensesPage extends StatelessWidget {
   const ExpensesPage({super.key});
@@ -123,7 +124,7 @@ class ExpensesPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              HomePage())); // Will be used for Expense Form
+                              ExpensesFormPage())); // Will be used for Expense Form
                 },
                 style: ElevatedButton.styleFrom(primary: Colors.green),
                 child: Text(
