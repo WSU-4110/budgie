@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:budgie/cloud/firestore_cloud_service.dart';
 
 class ExpenseForm extends StatefulWidget {
   const ExpenseForm({super.key});
@@ -10,13 +11,23 @@ class ExpenseForm extends StatefulWidget {
 
 class ExpenseFormState extends State<ExpenseForm> {
   final _formKey = GlobalKey<FormState>();
-
-  TextEditingController expenseName = TextEditingController();
-  TextEditingController expenseCost = TextEditingController();
-  TextEditingController expenseDate = TextEditingController();
-
-  RegExp digitValidator = RegExp("[0-9]+");
   bool isANumber = true;
+  RegExp digitValidator = RegExp("[0-9]+");
+
+  late final FirestoreCloudService _firestoreCloudService;
+  late final TextEditingController expenseName;
+  late final TextEditingController expenseCost;
+  late final TextEditingController expenseDate;
+  late final DateTime expenseDateValue;
+
+  @override
+  void initState() {
+    _firestoreCloudService = FirestoreCloudService();
+    expenseName = TextEditingController();
+    expenseCost = TextEditingController();
+    expenseDate = TextEditingController();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -79,7 +90,8 @@ class ExpenseFormState extends State<ExpenseForm> {
 
               if (pickeddate != null) {
                 setState(() {
-                  expenseDate.text = DateFormat.yMd().format(pickeddate);
+                  expenseDate.text = DateFormat.yMMMMd().format(pickeddate);
+                  expenseDateValue = pickeddate;
                 });
               }
             },
@@ -92,21 +104,33 @@ class ExpenseFormState extends State<ExpenseForm> {
             controller: expenseDate,
           ),
           new Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-              child: new ElevatedButton(
-                child: const Text('Submit'),
-                onPressed: () {
-                  showDialog(
+            padding: const EdgeInsets.only(left: 150.0, top: 40.0),
+            child: new ElevatedButton(
+              child: const Text('Submit'),
+              onPressed: () async {
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Processing Data')),
+                  );
+
+                  await _firestoreCloudService.addExpense(
+                    category: 'Food',
+                    expenseName: expenseName.text,
+                    expenseCost: double.parse(expenseCost.text),
+                    expenseDate: expenseDateValue,
+                  );
+                }
+
+                /*showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
                           content: Text(expenseName.text +
                               expenseCost.text +
-                              expenseDate.text));
-                    },
-                  );
-                },
-              )),
+                              expenseDate.text));*/
+              },
+            ),
+          ),
         ],
       ),
     );
