@@ -13,7 +13,8 @@ import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+      name: 'budgie', options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -53,6 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const ArticlesPage(),
     SettingsPage(),
     const ExpensesFormPage(),
+    const ExpenseForm()
   ];
 
   int selectedPage = 0;
@@ -69,12 +71,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromARGB(0, 0, 0, 0),
-        elevation: 0,
-        backgroundColor: Color.fromARGB(0, 0, 0, 0),
         centerTitle: false,
         title: const Text(
           'Budgie',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),

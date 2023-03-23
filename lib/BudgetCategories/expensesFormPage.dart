@@ -7,21 +7,19 @@ class ExpensesFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "route",
-      home: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            color: Colors.white,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          backgroundColor: Colors.green,
-          title: const Text("Test Expense name here"),
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: const Center(child: ExpenseForm()
-            /*child: ElevatedButton(
+        backgroundColor: Colors.green,
+        title: const Text("Test Expense name here"),
+      ),
+      body: const Center(child: ExpenseForm()
+          /*child: ElevatedButton(
               child: Text("Back to Home!"),
               onPressed: () {
                 Navigator.pop(context);
@@ -29,8 +27,7 @@ class ExpensesFormPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                   primary: Colors.green)
                   ),*/ // RaisedButton
-            ),
-      ),
+          ),
     );
   }
 }

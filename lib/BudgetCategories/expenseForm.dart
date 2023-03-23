@@ -121,6 +121,8 @@ class ExpenseFormState extends State<ExpenseForm> {
                   );
                 }
 
+                Navigator.pop(context);
+
                 /*showDialog(
                     context: context,
                     builder: (context) {
