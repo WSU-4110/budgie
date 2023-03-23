@@ -3,20 +3,21 @@ import 'package:flutter/foundation.dart';
 import 'package:budgie/cloud/cloud_field_constants.dart';
 
 @immutable
-class CloudBudget {
+class CloudExpense {
   final String documentId;
   final String name;
   final double cost;
   final DateTime date;
 
-  const CloudBudget({
+  const CloudExpense({
     required this.documentId,
     required this.name,
     required this.cost,
     required this.date,
   });
 
-  CloudBudget.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
+  CloudExpense.fromSnapshot(
+      QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
       : documentId = snapshot.id,
         name = snapshot.data()[expenseFieldName],
         cost = double.parse(snapshot.data()[expenseFieldCost]),
