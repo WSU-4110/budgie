@@ -1,3 +1,4 @@
+import 'package:budgie/cloud/cloud_expense.dart';
 import 'package:budgie/cloud/cloud_storage_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'cloud_field_constants.dart';
@@ -19,6 +20,13 @@ class FirestoreCloudService {
     } catch (e) {
       throw CouldNotCreateExpenseException();
     }
+  }
+
+  Stream<Iterable<CloudExpense>> allNotes({required String category}) {
+    final allExpenses = user.collection(category).snapshots().map(
+        (event) => event.docs.map((doc) => CloudExpense.fromSnapshot(doc)));
+
+    return allExpenses;
   }
 
   FirestoreCloudService._globalInstance();
