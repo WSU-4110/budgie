@@ -22,7 +22,7 @@ class FirestoreCloudService {
     }
   }
 
-  Stream<Iterable<CloudExpense>> allNotes({required String category}) {
+  Stream<Iterable<CloudExpense>> allExpenses({required String category}) {
     final allExpenses = user.collection(category).snapshots().map(
         (event) => event.docs.map((doc) => CloudExpense.fromSnapshot(doc)));
 
