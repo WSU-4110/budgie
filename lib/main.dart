@@ -13,8 +13,7 @@ import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      name: 'budgie', options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -53,7 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const HomePage(),
     const ArticlesPage(),
     SettingsPage(),
-    const ExpensesFormPage();
+    const ExpensesFormPage(),
   ];
 
   int selectedPage = 0;

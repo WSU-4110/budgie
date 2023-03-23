@@ -3,7 +3,7 @@ class CloudStorageException implements Exception {
 }
 
 // Create exception in CRUD
-class CouldNotCreateException extends CloudStorageException {}
+class CouldNotCreateExpenseException extends CloudStorageException {}
 
 // Read exception in CRUD
 class CouldNotGetAllExpensesException extends CloudStorageException {}
