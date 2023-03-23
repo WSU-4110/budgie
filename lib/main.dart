@@ -67,10 +67,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color.fromARGB(0, 0, 0, 0),
         centerTitle: false,
         title: const Text(
           'Budgie',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
       body: pages.elementAt(selectedPage),
@@ -139,7 +141,11 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
               SizedBox(height: 118, child: Center(child: HorProgressBar())),
+<<<<<<< HEAD
               //SizedBox(height: 30, child: Center(child: addButton()))
+=======
+              SizedBox(height: 30, child: Center(child: AddButton()))
+>>>>>>> main
             ])),
       ]),
     );
