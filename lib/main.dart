@@ -8,11 +8,12 @@ import 'firebase_options.dart';
 import 'settingPage.dart';
 import 'themeUtil/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:budgie/BudgetCategories/expenseForm.dart';
+import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      name: 'budgie', options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
@@ -51,6 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const HomePage(),
     const ArticlesPage(),
     SettingsPage(),
+    const ExpensesFormPage(),
   ];
 
   int selectedPage = 0;
@@ -67,9 +69,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color.fromARGB(0, 0, 0, 0),
+        elevation: 0,
+        backgroundColor: Color.fromARGB(0, 0, 0, 0),
         centerTitle: false,
         title: const Text(
           'Budgie',
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
@@ -104,9 +109,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
   //this is the homepage
   @override
   Widget build(BuildContext context) {
+    Size dimens = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(children: <Widget>[
