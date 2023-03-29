@@ -8,6 +8,7 @@ import 'firebase_options.dart';
 import 'settingPage.dart';
 import 'themeUtil/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'cloud/login_page.dart';
 import 'package:budgie/BudgetCategories/expenseForm.dart';
 import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
@@ -50,10 +51,11 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   List pages = [
+    const LoginPage(),
     const HomePage(),
     const ArticlesPage(),
     SettingsPage(),
-    const ExpensesFormPage(),
+        const ExpensesFormPage(),
     const ExpenseForm()
   ];
 
@@ -68,20 +70,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color.fromARGB(0, 0, 0, 0),
-        centerTitle: false,
-        title: const Text(
-          'Budgie',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-      ),
+      // appBar: AppBar(
+      //        elevation: 0,
+      //   backgroundColor: Color.fromARGB(0, 0, 0, 0),
+      //   centerTitle: false,
+      //   title: const Text(
+      //     'Budgie',
+      //     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      //   ),
+      // ),
       body: pages.elementAt(selectedPage),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: selectedPage,
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'lgin',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -108,11 +114,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
+  
   //this is the homepage
   @override
   Widget build(BuildContext context) {
-    Size dimens = MediaQuery.of(context).size;
+        Size dimens = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(children: <Widget>[
