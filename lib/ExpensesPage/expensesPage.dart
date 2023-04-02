@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
-import 'package:budgie/ExpensesPage/expensesContainer.dart';
+import 'package:budgie/ExpensesPage/expenses_container.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
@@ -18,8 +18,8 @@ class ExpensesPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         centerTitle: true,
-        title: const Text(
-          'Food',
+        title: Text(
+          category,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
@@ -33,6 +33,9 @@ class ExpensesPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
+                const Icon(
+                  Icons.warning_amber_rounded, 
+                  size: 30.0),
                 Text('\$$progressAmt',
                     style: const TextStyle(
                         fontWeight: FontWeight.w800, fontSize: 24)),
