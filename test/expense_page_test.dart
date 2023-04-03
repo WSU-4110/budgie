@@ -187,4 +187,24 @@ void main() {
 
     expect(textWidget, findsOneWidget);
   });
+
+  testWidgets('LinearPercentIndicator widget is displayed',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: LinearPercentIndicator(
+            width: 200.0,
+            lineHeight: 14.0,
+            percent: 0.5,
+            progressColor: Colors.green,
+          ),
+        ),
+      ),
+    );
+
+    final linearPercentIndicatorWidget = find.byType(LinearPercentIndicator);
+
+    expect(linearPercentIndicatorWidget, findsOneWidget);
+  });
 }
