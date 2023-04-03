@@ -165,29 +165,6 @@ void main() {
     expect(textWidget, findsOneWidget);
   });
 
-  testWidgets('Expenses header text is displayed', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: Container(
-            padding: const EdgeInsets.only(left: 10),
-            child: const Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                'Expenses',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-
-    final textWidget = find.text('Expenses');
-
-    expect(textWidget, findsOneWidget);
-  });
-
   testWidgets('LinearPercentIndicator widget is displayed',
       (WidgetTester tester) async {
     await tester.pumpWidget(
