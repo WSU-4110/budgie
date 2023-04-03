@@ -139,6 +139,7 @@ class HomePage extends StatelessWidget {
         Expanded(
             child: ListView(
                 children: const <Widget>[
+
               SizedBox(child: Center(child: HorProgressBar())),
               SizedBox(child: Center(child: HorProgressBar())),
               SizedBox(child: Center(child: HorProgressBar())),
