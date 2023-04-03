@@ -29,46 +29,45 @@ class ExpensesPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            (percentHelper(progressAmt, totalProgress) >= .75) 
-            ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                InkWell(
-                  onTap: () {
-                    showModalBottomSheet<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return  const SizedBox(
-                          child: WarningModal(),
-                        );
-                      },
-                    );
-                  },
-                  child: const Icon(Icons.warning_amber_rounded, size: 30.0),
-                ),
-                Text('\$$progressAmt',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w800, fontSize: 24)),
-                Text(' of $totalProgress',
-                    style: const TextStyle(fontSize: 16)), 
-                
-              ],
-            )
-            : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text('\$$progressAmt',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w800, fontSize: 24)),
-                Text(' of $totalProgress',
-                    style: const TextStyle(fontSize: 16)), 
-                
-              ],
-            ),
+            (percentHelper(progressAmt, totalProgress) >= .75)
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const SizedBox(
+                                child: WarningModal(),
+                              );
+                            },
+                          );
+                        },
+                        child:
+                            const Icon(Icons.warning_amber_rounded, size: 30.0),
+                      ),
+                      Text('\$$progressAmt',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 24)),
+                      Text(' of $totalProgress',
+                          style: const TextStyle(fontSize: 16)),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text('\$$progressAmt',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 24)),
+                      Text(' of $totalProgress',
+                          style: const TextStyle(fontSize: 16)),
+                    ],
+                  ),
             LinearPercentIndicator(
               animateFromLastPercent: true,
               lineHeight: 20,
