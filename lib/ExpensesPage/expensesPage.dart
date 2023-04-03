@@ -1,3 +1,4 @@
+import 'package:budgie/ExpensesPage/warningModal.dart';
 import 'package:budgie/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,19 +29,44 @@ class ExpensesPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Row(
+            (percentHelper(progressAmt, totalProgress) >= .75) 
+            ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                const Icon(
-                  Icons.warning_amber_rounded, 
-                  size: 30.0),
+                InkWell(
+                  onTap: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return  const SizedBox(
+                          child: WarningModal(),
+                        );
+                      },
+                    );
+                  },
+                  child: const Icon(Icons.warning_amber_rounded, size: 30.0),
+                ),
                 Text('\$$progressAmt',
                     style: const TextStyle(
                         fontWeight: FontWeight.w800, fontSize: 24)),
                 Text(' of $totalProgress',
-                    style: const TextStyle(fontSize: 16)),
+                    style: const TextStyle(fontSize: 16)), 
+                
+              ],
+            )
+            : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text('\$$progressAmt',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w800, fontSize: 24)),
+                Text(' of $totalProgress',
+                    style: const TextStyle(fontSize: 16)), 
+                
               ],
             ),
             LinearPercentIndicator(
@@ -73,15 +99,9 @@ class ExpensesPage extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: ListView(children: [
                       // ExpensesContainer(),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
+                      Container(child: Center(child: ExpensesContainer())),
+                      Container(child: Center(child: ExpensesContainer())),
+                      Container(child: Center(child: ExpensesContainer())),
                       const Divider(
                         height: 40,
                         thickness: 5,

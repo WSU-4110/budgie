@@ -12,22 +12,20 @@ class ExpensesContainer extends StatefulWidget {
 class _ExpensesContainer extends State<ExpensesContainer> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(expenseName,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-            Text(
-              expenseDate,
-            )
-          ]),
-          Text('-\$$expensePrice',
-              style: const TextStyle(color: Colors.red, fontSize: 16))
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(expenseName,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          Text(
+            expenseDate,
+          )
+        ]),
+        Text('-\$$expensePrice',
+            style: const TextStyle(color: Colors.red, fontSize: 16))
+      ],
     );
   }
 }
