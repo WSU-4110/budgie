@@ -98,6 +98,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "email_validator",
+      "rootUri": "file:///C:/Users/Ahmed/AppData/Local/Pub/Cache/hosted/pub.dev/email_validator-2.1.17",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///C:/Users/Ahmed/AppData/Local/Pub/Cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -494,7 +500,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-27T04:00:33.710531Z",
+  "generated": "2023-04-04T17:28:59.806988Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }
