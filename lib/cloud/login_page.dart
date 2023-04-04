@@ -18,17 +18,81 @@ class _LoginPageState extends State<LoginPage>{
   final _emailContoller = TextEditingController();
   final _passwordController = TextEditingController();
 
-  Future signIn() async{
+  void signIn() async{
+    showDialog(
+      context:context,
+      builder:(context){
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+    try{
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailContoller.text.trim(), 
       password: _passwordController.text.trim());
+      Navigator.pop(context);}
+      on FirebaseAuthException catch(e){
+        Navigator.pop(context);
+        if (e.code=='user not found') {
+          wrongEmailMessage();
+        }
+        else if (e.code=='wrong-password'){
+          wrongPasswordMessage();
+        }
 
+      }
+
+
+  }
+
+  void wrongEmailMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          backgroundColor: Colors.purple,
+          title: Center(
+            child: Text(
+              'Incorrect Email',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+   void wrongPasswordMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          backgroundColor: Colors.purple,
+          title: Center(
+            child: Text(
+              'Incorrect Password',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+
+
+  @override
+  void dispose(){
+    _emailContoller.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF22C55E),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
          //  backgroundColor: Color.fromARGB(255, 0, 158, 48),
 
       body: SafeArea(child:
@@ -39,21 +103,22 @@ class _LoginPageState extends State<LoginPage>{
           children: [
             Text(
               'Welcome to Budgie!',
-              style: GoogleFonts.bebasNeue(fontSize:52, color:Colors.white)
+              style: GoogleFonts.bebasNeue(fontSize:52, color:Colors.green)
             ),
              const SizedBox(height: 10),
              const Text(
               'Your personal budget buddy!',
-              style: TextStyle(fontSize: 18,color: Colors.white),
+              style: TextStyle(fontSize: 18,color: Colors.black),
             ),
              const SizedBox(height :50),
              Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
+                style: const TextStyle(color: Colors.black),
                 controller: _emailContoller,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
+                    borderSide: const BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   focusedBorder: OutlineInputBorder(
@@ -71,10 +136,11 @@ class _LoginPageState extends State<LoginPage>{
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child:TextField(
+                  style: const TextStyle(color: Colors.black),
                   controller: _passwordController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.black),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -98,7 +164,7 @@ class _LoginPageState extends State<LoginPage>{
                     child: Container(
                       padding:const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.greenAccent,
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Center(child: Text('Sign in',
@@ -118,11 +184,11 @@ class _LoginPageState extends State<LoginPage>{
                       Text(
                         'Not a member?',
                         style: TextStyle(
-                          color:Colors.white,
+                          color:Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text('Register here',
+                      Text('Create an account',
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,

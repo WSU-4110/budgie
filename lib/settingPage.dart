@@ -42,7 +42,7 @@ Widget buildDeleteAccount() => SimpleSettingsTile(
     title: 'Delete Account', subtitle: '', leading: const Icon(Icons.delete),
     onTap: () async {
       FirebaseAuth.instance.currentUser?.delete();
-        await FirebaseAuth.instance.signOut();
+        //await FirebaseAuth.instance.signOut();
 
 }
     );
