@@ -1,6 +1,4 @@
 import 'package:budgie/ExpensesPage/warningModal.dart';
-import 'package:budgie/main.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
@@ -29,7 +27,7 @@ class ExpensesPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            (percentHelper(progressAmt, totalProgress) >= .75) 
+            (percentHelper(progressAmt, totalProgress) <= .25) 
             ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.baseline,

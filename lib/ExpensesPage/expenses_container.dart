@@ -16,14 +16,14 @@ class _ExpensesContainer extends State<ExpensesContainer> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(expenseName,
+          Text(name,
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           Text(
-            expenseDate,
+            date,
           )
         ]),
-        Text('-\$$expensePrice',
+        Text('-\$$num',
             style: const TextStyle(color: Colors.red, fontSize: 16))
       ],
     );
