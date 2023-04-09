@@ -6,31 +6,35 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
-class LoginPage extends StatefulWidget{
-  final VoidCallback showSignupPage;
+class SignUpPage extends StatefulWidget{
+  final VoidCallback showLoginPage;
 
-  const LoginPage({Key? key,required this.showSignupPage}):super(key: key);
+  const SignUpPage({Key? key,required this.showLoginPage}):super(key: key);
   
   @override
-  State<LoginPage> createState()=>_LoginPageState();
+  State<SignUpPage> createState()=>_SignUpPageState();
 
 }
 
-class _LoginPageState extends State<LoginPage>{
+class _SignUpPageState extends State<SignUpPage>{
 
   final _emailContoller = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void signIn() async{
+  void signUp() async{
    if (_emailContoller.text.isEmpty || _passwordController.text.isEmpty) {
   Fluttertoast.showToast(
         msg: 'Please fill in all fields.');
   return;
 }
+ RegExp emailPatt =RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    if(_emailContoller.text.trim().isNotEmpty&&!emailPatt.hasMatch(_emailContoller.text)){
+      Fluttertoast.showToast(msg:'Please enter a valid email address');
+    }
 
-if (_passwordController.text.length < 6) {
+if (_passwordController.text.length < 8) {
     Fluttertoast.showToast(
-        msg: 'Invalid password.');
+        msg: 'Password must be at least 8 characters');
   return;
 }
     showDialog(
@@ -41,64 +45,12 @@ if (_passwordController.text.length < 6) {
         );
       },
     );
-    try{
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: _emailContoller.text.trim(), 
       password: _passwordController.text.trim());
-      Navigator.pop(context);}
-      on FirebaseAuthException catch(e){
-        Navigator.pop(context);
-        if (e.code=='user not found') {
-          wrongEmailMessage();
-        }
-        else if (e.code=='wrong-password'){
-          wrongPasswordMessage();
-        }
-        print (e);
-
-
-      }
-      
-
-
+       Navigator.pop(context);
   }
-
-  void wrongEmailMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.purple,
-          title: Center(
-            child: Text(
-              'Incorrect Email',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-   void wrongPasswordMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.purple,
-          title: Center(
-            child: Text(
-              'Incorrect Password',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-
-
   @override
   void dispose(){
     _emailContoller.dispose();
@@ -124,7 +76,7 @@ if (_passwordController.text.length < 6) {
             ),
              const SizedBox(height: 10),
              const Text(
-              "You've been missed",
+              'Your personal budget buddy!',
               style: TextStyle(fontSize: 18,color: Colors.black),
             ),
              const SizedBox(height :50),
@@ -177,14 +129,14 @@ if (_passwordController.text.length < 6) {
                 Padding(
                   padding:const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
-                    onTap: signIn,
+                    onTap: signUp,
                     child: Container(
                       padding:const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Center(child: Text('Sign in',
+                      child: const Center(child: Text('Sign up',
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -199,15 +151,15 @@ if (_passwordController.text.length < 6) {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:  [
                       Text(
-                        'Not a member?',
+                        'Already a member?',
                         style: TextStyle(
                           color:Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       GestureDetector(
-                        onTap: widget.showSignupPage,
-                        child: Text('Create an account',
+                        onTap: widget.showLoginPage,
+                        child: Text('Sign in',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,

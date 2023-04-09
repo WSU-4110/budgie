@@ -188,6 +188,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "fluttertoast",
+      "rootUri": "file:///C:/Users/Ahmed/AppData/Local/Pub/Cache/hosted/pub.dev/fluttertoast-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "google_fonts",
       "rootUri": "file:///C:/Users/Ahmed/AppData/Local/Pub/Cache/hosted/pub.dev/google_fonts-4.0.3",
       "packageUri": "lib/",
@@ -494,7 +500,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-27T04:00:33.710531Z",
+  "generated": "2023-04-09T19:57:10.452040Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }

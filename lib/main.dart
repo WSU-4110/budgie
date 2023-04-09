@@ -1,4 +1,5 @@
 import 'package:budgie/BudgetButton/button.dart';
+import 'package:budgie/cloud/authpage.dart';
 import 'package:flutter/material.dart';
 import 'BudgetCategories/horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
@@ -51,7 +52,7 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   List pages = [
-    const LoginPage(),
+    const Authpage(),
     const HomePage(),
     const ArticlesPage(),
     SettingsPage(),
