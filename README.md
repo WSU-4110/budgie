@@ -5,7 +5,7 @@ If you would like to follow along with our progress or gain more insight into wh
 
 
 ## Meet the team
-* Manpreet Signh
+* Manpreet Singh
 * Ahmed Alagbari
 * Oke-Oghene Amuwha
 * Rey Jakosalem

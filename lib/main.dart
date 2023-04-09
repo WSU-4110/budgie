@@ -134,7 +134,7 @@ class HomePage extends StatelessWidget {
           color: Color.fromARGB(255, 222, 222, 222),
         ),
         Container(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 16),
           child: const Align(
             alignment: AlignmentDirectional.centerStart,
             child: Text(
@@ -145,11 +145,11 @@ class HomePage extends StatelessWidget {
         ),
         Expanded(
             child: ListView(
-                padding: const EdgeInsets.all(5),
                 children: const <Widget>[
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
+
+              SizedBox(child: Center(child: HorProgressBar())),
+              SizedBox(child: Center(child: HorProgressBar())),
+              SizedBox(child: Center(child: HorProgressBar())),
               SizedBox(height: 30, child: Center(child: AddButton()))
             ])),
       ]),
