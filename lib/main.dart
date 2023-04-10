@@ -1,4 +1,4 @@
-import 'package:budgie/button.dart';
+import 'package:budgie/BudgetButton/button.dart';
 import 'package:flutter/material.dart';
 import 'BudgetCategories/horProgressBar.dart';
 import 'BudgetCircle/overallBudgetCircle.dart';
@@ -8,6 +8,8 @@ import 'firebase_options.dart';
 import 'settingPage.dart';
 import 'themeUtil/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:budgie/BudgetCategories/expenseForm.dart';
+import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,6 +53,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const HomePage(),
     const ArticlesPage(),
     SettingsPage(),
+    const ExpensesFormPage(),
+    const ExpenseForm()
   ];
 
   int selectedPage = 0;
@@ -65,10 +69,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Color.fromARGB(0, 0, 0, 0),
         centerTitle: false,
         title: const Text(
           'Budgie',
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
       body: pages.elementAt(selectedPage),
@@ -102,9 +108,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
   //this is the homepage
   @override
   Widget build(BuildContext context) {
+    Size dimens = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Column(children: <Widget>[
@@ -119,7 +127,7 @@ class HomePage extends StatelessWidget {
           color: Color.fromARGB(255, 222, 222, 222),
         ),
         Container(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 16),
           child: const Align(
             alignment: AlignmentDirectional.centerStart,
             child: Text(
@@ -130,15 +138,14 @@ class HomePage extends StatelessWidget {
         ),
         Expanded(
             child: ListView(
-                padding: const EdgeInsets.all(5),
                 children: const <Widget>[
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 118, child: Center(child: HorProgressBar())),
-              SizedBox(height: 30, child: Center(child: addButton()))
+
+              SizedBox(child: Center(child: HorProgressBar())),
+              SizedBox(child: Center(child: HorProgressBar())),
+              SizedBox(child: Center(child: HorProgressBar())),
+              SizedBox(height: 30, child: Center(child: AddButton()))
             ])),
       ]),
     );
   }
 }
-

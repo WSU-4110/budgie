@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 String category = 'Food';
-String progressAmt = '249';
+String progressAmt = '400';
 String totalProgress = '500';
 
 // Calculates LinearPercentIndicator.percent
