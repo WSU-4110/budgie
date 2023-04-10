@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'forgotPassPage.dart';
 
 
 class LoginPage extends StatefulWidget{
@@ -18,21 +17,16 @@ class LoginPage extends StatefulWidget{
 
 class _LoginPageState extends State<LoginPage>{
 
-  final _emailContoller = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   void signIn() async{
-   if (_emailContoller.text.isEmpty || _passwordController.text.isEmpty) {
+   if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
   Fluttertoast.showToast(
         msg: 'Please fill in all fields.');
   return;
 }
 
-if (_passwordController.text.length < 6) {
-    Fluttertoast.showToast(
-        msg: 'Invalid password.');
-  return;
-}
     showDialog(
       context:context,
       builder:(context){
@@ -43,53 +37,26 @@ if (_passwordController.text.length < 6) {
     );
     try{
     await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailContoller.text.trim(), 
+      email: _emailController.text.trim(), 
       password: _passwordController.text.trim());
       Navigator.pop(context);}
       on FirebaseAuthException catch(e){
         Navigator.pop(context);
-        if (e.code=='user not found') {
-          wrongEmailMessage();
+       errorMessage(e.code);
         }
-        else if (e.code=='wrong-password'){
-          wrongPasswordMessage();
-        }
-        print (e);
-
-
       }
-      
+  
 
-
-  }
-
-  void wrongEmailMessage() {
+  void errorMessage(String message) {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.purple,
+        return  AlertDialog(
+          backgroundColor: Colors.green,
           title: Center(
             child: Text(
-              'Incorrect Email',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-   void wrongPasswordMessage() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.purple,
-          title: Center(
-            child: Text(
-              'Incorrect Password',
-              style: TextStyle(color: Colors.white),
+              message,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         );
@@ -101,7 +68,7 @@ if (_passwordController.text.length < 6) {
 
   @override
   void dispose(){
-    _emailContoller.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -124,7 +91,7 @@ if (_passwordController.text.length < 6) {
             ),
              const SizedBox(height: 10),
              const Text(
-              "You've been missed",
+              "You've been missed!",
               style: TextStyle(fontSize: 18,color: Colors.black),
             ),
              const SizedBox(height :50),
@@ -132,7 +99,7 @@ if (_passwordController.text.length < 6) {
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
                 style: const TextStyle(color: Colors.black),
-                controller: _emailContoller,
+                controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(color: Colors.black),
@@ -173,6 +140,26 @@ if (_passwordController.text.length < 6) {
                   obscureText: true,)
                 ),
                 const SizedBox(height:10),
+
+                GestureDetector(
+                  
+                  child: Padding(
+                    padding:const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Forgot Password?',
+                        style: const TextStyle(color: Colors.red,
+                        decoration: TextDecoration.underline),
+                        )
+                      ]
+                    ),
+                   ),
+                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const forgotPass(),
+                   )),
+                ),
+              const SizedBox(height:10),
+
                 
                 Padding(
                   padding:const EdgeInsets.symmetric(horizontal: 25),
@@ -210,6 +197,7 @@ if (_passwordController.text.length < 6) {
                         child: Text('Create an account',
                         style: TextStyle(
                           color: Colors.blue,
+                          decoration: TextDecoration.underline,
                           fontWeight: FontWeight.bold,
                         ),
                         ),
@@ -218,7 +206,9 @@ if (_passwordController.text.length < 6) {
                   )
           ],
           ),
-        )) ,)
+        )
+        ),
+        )
     );
   }
 }

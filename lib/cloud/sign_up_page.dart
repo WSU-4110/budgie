@@ -20,6 +20,7 @@ class _SignUpPageState extends State<SignUpPage>{
 
   final _emailContoller = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmController= TextEditingController();
 
   void signUp() async{
    if (_emailContoller.text.isEmpty || _passwordController.text.isEmpty) {
@@ -35,6 +36,11 @@ class _SignUpPageState extends State<SignUpPage>{
 if (_passwordController.text.length < 8) {
     Fluttertoast.showToast(
         msg: 'Password must be at least 8 characters');
+  return;
+}
+if (_passwordController !=_confirmController) {
+    Fluttertoast.showToast(
+        msg: 'Passwords do not match');
   return;
 }
     showDialog(
@@ -55,6 +61,7 @@ if (_passwordController.text.length < 8) {
   void dispose(){
     _emailContoller.dispose();
     _passwordController.dispose();
+    _confirmController.dispose();
     super.dispose();
   }
 
@@ -124,6 +131,31 @@ if (_passwordController.text.length < 8) {
                   ),
                   obscureText: true,)
                 ),
+               
+                const SizedBox(height:10),
+
+                Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child:TextField(
+                  style: const TextStyle(color: Colors.black),
+                  controller: _confirmController,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(12)
+                    ),
+                    hintText: 'Confirm Password',
+                    hintStyle: const TextStyle(color:Colors.grey),
+                    fillColor: Colors.white,
+                    filled:true,
+                    
+                  ),
+                  obscureText: true,)
+                ),
                 const SizedBox(height:10),
                 
                 Padding(
@@ -162,6 +194,7 @@ if (_passwordController.text.length < 8) {
                         child: Text('Sign in',
                         style: TextStyle(
                           color: Colors.blue,
+                          decoration: TextDecoration.underline,
                           fontWeight: FontWeight.bold,
                         ),
                         ),
