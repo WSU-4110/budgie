@@ -38,7 +38,7 @@ if (_passwordController.text.length < 8) {
         msg: 'Password must be at least 8 characters');
   return;
 }
-if (_passwordController !=_confirmController) {
+if (_passwordController.text != _confirmController.text) {
     Fluttertoast.showToast(
         msg: 'Passwords do not match');
   return;
