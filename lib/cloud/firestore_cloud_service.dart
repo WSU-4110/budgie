@@ -6,7 +6,7 @@ import '../mainPage.dart';
 import 'cloud_field_constants.dart';
 
 class FirestoreCloudService {
-   final user = FirebaseFirestore.instance.collection('users').doc('test');
+   final user = FirebaseFirestore.instance.collection('users').doc(Authenticator().currentUser?.uid);
    //final User? user=Authenticator().currentUser;
 
 

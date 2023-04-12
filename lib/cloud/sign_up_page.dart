@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class SignUpPage extends StatefulWidget{
@@ -21,6 +22,18 @@ class _SignUpPageState extends State<SignUpPage>{
   final _emailContoller = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmController= TextEditingController();
+
+  Future<void> addUsertoStore(String userEmail) async{
+    CollectionReference users =FirebaseFirestore.instance.collection('users');
+    FirebaseAuth auth =FirebaseAuth.instance;
+    String uid =auth.currentUser!.uid.toString();
+    users.add({
+      'userEmail':userEmail, 'uid': uid 
+
+    });
+    return;
+  }
+
 
   void signUp() async{
    if (_emailContoller.text.isEmpty || _passwordController.text.isEmpty) {
@@ -52,11 +65,39 @@ if (_passwordController.text != _confirmController.text) {
       },
     );
     
+     try{
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: _emailContoller.text.trim(), 
-      password: _passwordController.text.trim());
+      password: _passwordController.text.trim()
+      );
+      addUsertoStore(_emailContoller.text);
        Navigator.pop(context);
   }
+  on FirebaseAuthException catch(e){
+        Navigator.pop(context);
+       errorMessage(e.code);
+        }
+  
+  }
+  
+  void errorMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return  AlertDialog(
+          backgroundColor: Colors.green,
+          title: Center(
+            child: Text(
+              message,
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+        );
+      },
+    );
+  }
+  
+  
   @override
   void dispose(){
     _emailContoller.dispose();
