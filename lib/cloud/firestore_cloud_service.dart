@@ -1,10 +1,14 @@
 import 'package:budgie/cloud/cloud_expense.dart';
 import 'package:budgie/cloud/cloud_storage_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../mainPage.dart';
 import 'cloud_field_constants.dart';
 
 class FirestoreCloudService {
-  final user = FirebaseFirestore.instance.collection('users').doc('test');
+   final user = FirebaseFirestore.instance.collection('users').doc('test');
+   //final User? user=Authenticator().currentUser;
+
 
   Future<void> addExpense(
       {required String category,

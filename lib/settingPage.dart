@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
@@ -31,7 +33,21 @@ class SettingsPage extends StatelessWidget {
 }
 
 Widget buildLogout() => SimpleSettingsTile(
-    title: 'Logout', subtitle: '', leading: const Icon(Icons.logout));
+    title: 'Logout', subtitle: '', 
+    leading: const Icon(Icons.logout),
+    onTap:()=> signUserOut()
+    );
 
 Widget buildDeleteAccount() => SimpleSettingsTile(
-    title: 'Delete Account', subtitle: '', leading: const Icon(Icons.delete));
+    title: 'Delete Account', subtitle: '', leading: const Icon(Icons.delete),
+    onTap: () async {
+      FirebaseAuth.instance.currentUser?.delete();
+        //await FirebaseAuth.instance.signOut();
+
+}
+    );
+
+void signUserOut(){
+  FirebaseAuth.instance.signOut();
+}
+
