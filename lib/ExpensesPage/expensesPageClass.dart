@@ -6,7 +6,7 @@
 //   Expenses({this.name, this.date, this.amount});
 // }
 
-String name = 'Walmart';
-String date = '10/10/2021';
-double amount = 12;
-String num = amount.toStringAsFixed(2);
+String expenseName = 'Walmart';
+String expenseDate = '10/10/2021';
+double expenseCost = 12;
+String num = expenseCost.toStringAsFixed(2);

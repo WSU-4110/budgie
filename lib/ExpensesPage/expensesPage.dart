@@ -6,6 +6,10 @@ import 'package:budgie/ExpensesPage/expenses_container.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
+import '../BudgetCategories/expensesFormPage.dart';
+import '../cloud/cloud_expense.dart';
+import '../cloud/firestore_cloud_service.dart';
+
 class ExpensesPage extends StatelessWidget {
   const ExpensesPage({super.key});
 
@@ -95,10 +99,23 @@ class ExpensesPage extends StatelessWidget {
                 child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: ListView(children: [
-                      // ExpensesContainer(),
+                      ExpensesContainer(),
+                      // Setting up front end to response for firebase data
+                        // StreamBuilder(
+                        //   stream: FirestoreCloudService().allExpenses(category: category),
+                        //   builder: (context, snapshot) {
+                        //     switch (snapshot.connectionState) {
+                        //       case ConnectionState.waiting:
+                        //       case ConnectionState.active:
+                        //       if (snapshot.hasData) {
+                        //         final expenses = snapshot.data as List<CloudExpense>;
+                        //       }
+                        //     }
+                        //   },
+                        // ),
                       Container(child: Center(child: ExpensesContainer())),
-                      Container(child: Center(child: ExpensesContainer())),
-                      Container(child: Center(child: ExpensesContainer())),
+                      // Container(child: Center(child: ExpensesContainer())),
+                      // Container(child: Center(child: ExpensesContainer())),
                       const Divider(
                         height: 40,
                         thickness: 5,
