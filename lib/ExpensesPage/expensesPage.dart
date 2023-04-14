@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
 import 'package:budgie/ExpensesPage/expenses_container.dart';
+import 'package:budgie/ExpensesPage/expenses_container.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:budgie/BudgetCategories/expensesFormPage.dart';
 
@@ -17,6 +18,8 @@ class ExpensesPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         centerTitle: true,
+        title: Text(
+          category,
         title: Text(
           category,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -65,6 +68,8 @@ class ExpensesPage extends StatelessWidget {
                 Text(' of $totalProgress',
                     style: const TextStyle(fontSize: 16)), 
                 
+                    style: const TextStyle(fontSize: 16)), 
+                
               ],
             ),
             LinearPercentIndicator(
@@ -97,6 +102,9 @@ class ExpensesPage extends StatelessWidget {
                     padding: const EdgeInsets.all(12.0),
                     child: ListView(children: [
                       // ExpensesContainer(),
+                      Container(child: Center(child: ExpensesContainer())),
+                      Container(child: Center(child: ExpensesContainer())),
+                      Container(child: Center(child: ExpensesContainer())),
                       Container(child: Center(child: ExpensesContainer())),
                       Container(child: Center(child: ExpensesContainer())),
                       Container(child: Center(child: ExpensesContainer())),
