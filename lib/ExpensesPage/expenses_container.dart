@@ -3,7 +3,14 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/ExpensesPage/expensesPageClass.dart';
 
 class ExpensesContainer extends StatefulWidget {
-  const ExpensesContainer({Key? key}) : super(key: key);
+  // final String expenseName;
+  // final double expenseCost;
+  // final DateTime expenseDate;
+  const ExpensesContainer({Key? key
+  // required this.expenseName,
+  // required this.expenseCost,
+  // required this.expenseDate
+  }) : super(key: key);
 
   @override
   _ExpensesContainer createState() => _ExpensesContainer();
@@ -20,10 +27,10 @@ class _ExpensesContainer extends State<ExpensesContainer> {
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           Text(
-            expenseDate,
+            expenseDate.toString(),
           )
         ]),
-        Text('-\$$expensePrice',
+        Text('\$$num',
             style: const TextStyle(color: Colors.red, fontSize: 16))
       ],
     );
