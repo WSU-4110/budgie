@@ -1,3 +1,12 @@
+// class Expenses {
+//   final String? name;
+//   final DateTime? date;
+//   final double? amount;
+
+//   Expenses({this.name, this.date, this.amount});
+// }
+
 String expenseName = 'Walmart';
-String expenseDate = '02/02/23';
-double expensePrice = 4.99;
+String expenseDate = '10/10/2021';
+double expenseCost = 12;
+String num = expenseCost.toStringAsFixed(2);

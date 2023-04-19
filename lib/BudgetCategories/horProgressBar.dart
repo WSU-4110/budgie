@@ -13,9 +13,8 @@ class HorProgressBar extends StatefulWidget {
 class _HorProgressBar extends State<HorProgressBar> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-            child: InkWell(
+    return Center(
+        child: InkWell(
       onTap: () {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const ExpensesPage()));
@@ -56,6 +55,6 @@ class _HorProgressBar extends State<HorProgressBar> {
               )
             ],
           )),
-    )));
+    ));
   }
 }

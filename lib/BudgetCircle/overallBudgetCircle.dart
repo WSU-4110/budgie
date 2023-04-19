@@ -17,12 +17,15 @@ class _BudgetCircleState extends State<OverBudgie> {
   double currentBudget = 90;
 
   late String currentBudgie = '$currentBudget';
+  late String totalBudgie = '$totalBudget';
 
   ovProgress(double totalBud, double currentBud) {
     double progress = 0;
 
+
     if (totalBud <= 0) {
       return progress;
+    } else {
     } else {
       progress = (currentBud / totalBud);
       return progress;
@@ -50,6 +53,9 @@ class _BudgetCircleState extends State<OverBudgie> {
           center: new Text("\$" + currentBudgie,
               style:
                   new TextStyle(fontWeight: FontWeight.bold, fontSize: 40.0)),
+          footer: Text("out of " + totalBudgie,
+              style:
+                  new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
           circularStrokeCap: CircularStrokeCap.round,
           backgroundColor: const Color.fromRGBO(211, 211, 211, 1),
           progressColor: colorChange(ovProgress(totalBudget, currentBudget)),

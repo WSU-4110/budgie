@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 String category = 'Food';
-String progressAmt = '249';
+String progressAmt = '400';
 String totalProgress = '500';
 
 // Calculates LinearPercentIndicator.percent
@@ -11,7 +11,7 @@ double percentHelper(String dividend, String divisor) {
   var intDividend = double.parse(dividend);
   var intDivisor = double.parse(divisor);
 
-  return intDividend / intDivisor;
+  return 1 - (intDividend / intDivisor);
 }
 
 Color dynamicColor(String dividend, String divisor) {

@@ -1,11 +1,14 @@
-import 'package:budgie/main.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:budgie/ExpensesPage/warningModal.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
-import 'package:budgie/ExpensesPage/expensesContainer.dart';
+import 'package:budgie/ExpensesPage/expenses_container.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import 'package:budgie/BudgetCategories/expensesFormPage.dart';
+
+import '../BudgetCategories/expensesFormPage.dart';
+import '../cloud/cloud_expense.dart';
+import '../cloud/firestore_cloud_service.dart';
 
 class ExpensesPage extends StatelessWidget {
   const ExpensesPage({super.key});
@@ -18,8 +21,8 @@ class ExpensesPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         centerTitle: true,
-        title: const Text(
-          'Food',
+        title: Text(
+          category,
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
@@ -28,18 +31,45 @@ class ExpensesPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text('\$$progressAmt',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w800, fontSize: 24)),
-                Text(' of $totalProgress',
-                    style: const TextStyle(fontSize: 16)),
-              ],
-            ),
+            (percentHelper(progressAmt, totalProgress) <= .25)
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const SizedBox(
+                                child: WarningModal(),
+                              );
+                            },
+                          );
+                        },
+                        child:
+                            const Icon(Icons.warning_amber_rounded, size: 30.0),
+                      ),
+                      Text('\$$progressAmt',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 24)),
+                      Text(' of $totalProgress',
+                          style: const TextStyle(fontSize: 16)),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text('\$$progressAmt',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w800, fontSize: 24)),
+                      Text(' of $totalProgress',
+                          style: const TextStyle(fontSize: 16)),
+                    ],
+                  ),
             LinearPercentIndicator(
               animateFromLastPercent: true,
               lineHeight: 20,
@@ -69,16 +99,23 @@ class ExpensesPage extends StatelessWidget {
                 child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: ListView(children: [
-                      // ExpensesContainer(),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
-                      Container(
-                          height: 50,
-                          child: Center(child: ExpensesContainer())),
+                      ExpensesContainer(),
+                      // Setting up front end to response for firebase data
+                        // StreamBuilder(
+                        //   stream: FirestoreCloudService().allExpenses(category: category),
+                        //   builder: (context, snapshot) {
+                        //     switch (snapshot.connectionState) {
+                        //       case ConnectionState.waiting:
+                        //       case ConnectionState.active:
+                        //       if (snapshot.hasData) {
+                        //         final expenses = snapshot.data as List<CloudExpense>;
+                        //       }
+                        //     }
+                        //   },
+                        // ),
+                      Container(child: Center(child: ExpensesContainer())),
+                      // Container(child: Center(child: ExpensesContainer())),
+                      // Container(child: Center(child: ExpensesContainer())),
                       const Divider(
                         height: 40,
                         thickness: 5,
