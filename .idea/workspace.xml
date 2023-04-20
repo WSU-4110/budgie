@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="459a4731-cb3b-45b6-b574-cb3e1c130aa8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/lib/ExpensesPage/expenses_container.dart" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/lib/ExpensesPage/warningModal.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cloud/authpage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cloud/forgotPassPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cloud/login_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cloud/sign_up_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mainPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/main_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/expense_page_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" afterDir="false" />
@@ -13,7 +32,14 @@
       <change beforePath="$PROJECT_DIR$/lib/BudgetCircle/overallBudgetCircle.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/BudgetCircle/overallBudgetCircle.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ExpensesPage/expensesContainer.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ExpensesPage/expensesPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ExpensesPage/expensesPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ExpensesPage/expensesPageClass.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ExpensesPage/expensesPageClass.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/cloud/firestore_cloud_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/cloud/firestore_cloud_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/settingPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/settingPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +68,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
