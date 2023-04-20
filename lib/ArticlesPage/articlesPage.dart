@@ -38,10 +38,9 @@ class ArticlesPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ExpandedArticle(
-                                  title: article.title,
-                                  category: article.category,
-                                  text: article.text
-                                )));
+                                    title: article.title,
+                                    category: article.category,
+                                    text: article.text)));
                       },
                       child: Container(
                           width: 200,
@@ -80,7 +79,12 @@ class ExpandedArticle extends StatelessWidget {
   final String category;
   final String text;
 
-  const ExpandedArticle({Key? key, required this.title, required this.category, required this.text}) : super(key: key);
+  const ExpandedArticle(
+      {Key? key,
+      required this.title,
+      required this.category,
+      required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,25 +93,27 @@ class ExpandedArticle extends StatelessWidget {
             toolbarHeight: 100,
             centerTitle: false,
             backgroundColor: Colors.green,
-            title: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Text('Getting Started',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                ),
-                Text('Information',
-                    style: TextStyle(fontSize: 16, color: Colors.white))
-              ],
-            )),
-        body: const Padding(
-            padding: EdgeInsets.all(30.0),
-            child: Text(
-              'Filler Text',
-              style: TextStyle(fontSize: 16),
-            )));
+            title:
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title,
+                  style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white)),
+                  Text('Category: $category',
+                  style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.white))
+                ],
+              )
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(text)
+          ),
+        ));
   }
 }
