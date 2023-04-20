@@ -2,7 +2,7 @@ import 'package:budgie/mainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:budgie/settingPage.dart';
-import 'articlesPage.dart';
+import 'ArticlesPage/articlesPage.dart';
 import 'home_Page.dart';
 
 
@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   final User? user=Authenticator().currentUser;
    List pages = [
     const HomePage(),
-    const ArticlesPage(),
+    ArticlesPage(),
     SettingsPage(),
   ];
 
