@@ -20,6 +20,6 @@ class CloudExpense {
       QueryDocumentSnapshot<Map<String, dynamic>> snapshot)
       : documentId = snapshot.id,
         name = snapshot.data()[expenseFieldName],
-        cost = double.parse(snapshot.data()[expenseFieldCost]),
-        date = snapshot.data()[expenseFieldDate];
+        cost = double.parse(snapshot.data()[expenseFieldCost].toString()),
+        date = (snapshot.data()[expenseFieldDate] as Timestamp).toDate();
 }
