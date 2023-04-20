@@ -26,7 +26,7 @@ Future<List<Article>> getArticles() async {
     articles.add(article);
   });
 
-  if (category == 'Food' && int.parse(progressAmt) >= 375) {
+  if (category == 'Food' && (int.parse(progressAmt) / int.parse(totalProgress)) >= 0.75) {
     articles.sort((a, b) {
       if (a.category == 'Food' && b.category != 'Food') {
         return -1;
