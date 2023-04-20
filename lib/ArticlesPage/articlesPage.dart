@@ -111,7 +111,7 @@ class ExpandedArticle extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             child: Text(text)
           ),
         ));
