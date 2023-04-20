@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
 
 class Article {
   final String title;
@@ -24,6 +25,18 @@ Future<List<Article>> getArticles() async {
     Article article = Article.fromMap(data);
     articles.add(article);
   });
+
+  if (category == 'Food' && int.parse(progressAmt) >= 375) {
+    articles.sort((a, b) {
+      if (a.category == 'Food' && b.category != 'Food') {
+        return -1;
+      } else if (a.category != 'Food' && b.category == 'Food') {
+        return 1;
+      } else {
+        return a.category.compareTo(b.category);
+      }
+    });
+  }
 
   return articles;
 }
