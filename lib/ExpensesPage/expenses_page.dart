@@ -133,35 +133,35 @@ class _ExpensesPageState extends State<ExpensesPage> {
                       },
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: const Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: Text(
-                        'Over 30 Days',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text('Kroger',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 18)),
-                            Text(
-                              '02/02/23',
-                              style: TextStyle(color: Colors.black87),
-                            )
-                          ]),
-                      const Text('-\$4.99',
-                          style: TextStyle(color: Colors.red, fontSize: 16))
-                    ],
-                  ),
+                  // Container(
+                  //   padding: const EdgeInsets.only(bottom: 10),
+                  //   child: const Align(
+                  //     alignment: AlignmentDirectional.centerStart,
+                  //     child: Text(
+                  //       'Over 30 Days',
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.bold, fontSize: 24),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Column(
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: const [
+                  //           Text('Kroger',
+                  //               style: TextStyle(
+                  //                   fontWeight: FontWeight.bold, fontSize: 18)),
+                  //           Text(
+                  //             '02/02/23',
+                  //             style: TextStyle(color: Colors.black87),
+                  //           )
+                  //         ]),
+                  //     const Text('-\$4.99',
+                  //         style: TextStyle(color: Colors.red, fontSize: 16))
+                  //   ],
+                  // ),
                   // ! Add a new button to add a new expense for the category.
                   SizedBox(
                     child: TextButton(
