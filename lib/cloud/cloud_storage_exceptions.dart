@@ -13,3 +13,5 @@ class CouldNotUpdateExpenseExcpetion extends CloudStorageException {}
 
 // Delete exception in CRUD
 class CouldNotDeleteExpenseException extends CloudStorageException {}
+
+class CouldNotCreateBudgetException extends CloudStorageException {}
