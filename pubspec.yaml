@@ -47,6 +47,9 @@ dependencies:
 
   sticky_headers: "^0.3.0"
   cloud_firestore: ^4.4.5
+  firebase_auth: ^4.1.0
+  fluttertoast: ^8.2.1
+  google_fonts: ^4.0.3
 
 
 dev_dependencies:

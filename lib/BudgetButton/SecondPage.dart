@@ -17,7 +17,7 @@ class _PageForNameState extends State<PageForName> {
     final cloudService = FirestoreCloudService();
     try {
       await cloudService.addBudgetDetails(
-          budgetName: budgetName,
+          budgetName: budgetNameController.text.trim(),
           budgetCost: budgetCost,
           budgetDate: DateTime.now());
     } catch (e) {
@@ -165,7 +165,7 @@ class _PageForCostState extends State<PageForCost> {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments;
-    final String budgetName = args is PageForCost ? args.budgetName : '';
+    final String budgetName = args is PageForCost ? args.budgetName : "";
     final DateTime budgetDate =
         args is PageForCost ? args.budgetDate : DateTime.now();
 
