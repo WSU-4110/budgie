@@ -50,6 +50,8 @@ dependencies:
   firebase_auth: ^4.1.0
   fluttertoast: ^8.2.1
   google_fonts: ^4.0.3
+  fake_cloud_firestore: ^2.4.1+1
+  mockito: ^5.4.0
 
 
 dev_dependencies:
