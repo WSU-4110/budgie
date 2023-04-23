@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:budgie/BudgetCategories/budgetCategoryPrice.dart';
-import 'package:budgie/ExpensesPage/expensesPage.dart';
+import 'package:budgie/ExpensesPage/expenses_page.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 void main() {
