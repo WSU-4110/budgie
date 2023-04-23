@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 String category = 'Food';
 String progressAmt = '400';
@@ -10,7 +11,7 @@ double percentHelper(String dividend, String divisor) {
   var intDividend = double.parse(dividend);
   var intDivisor = double.parse(divisor);
 
-  return intDividend / intDivisor;
+  return 1 - (intDividend / intDivisor);
 }
 
 Color dynamicColor(String dividend, String divisor) {
