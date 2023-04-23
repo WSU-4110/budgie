@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'getArticles.dart';
 
 class ArticlesPage extends StatelessWidget {
-  Future<List<Article>> list = getArticles();
-
   ArticlesPage({super.key});
 
   @override
