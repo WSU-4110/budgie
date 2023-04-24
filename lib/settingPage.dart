@@ -10,6 +10,7 @@ class SettingsPage extends StatelessWidget {
 
   SettingsPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +24,8 @@ class SettingsPage extends StatelessWidget {
             SettingsGroup(
               title: 'Account Settings',
               children: <Widget>[
-                buildLogout(),
-                buildDeleteAccount(),
+                buildLogout(context),
+                buildDeleteAccount(context),
               ],
             ),
           ],
@@ -32,20 +33,66 @@ class SettingsPage extends StatelessWidget {
   }
 }
 
-Widget buildLogout() => SimpleSettingsTile(
-    title: 'Logout', subtitle: '', 
-    leading: const Icon(Icons.logout),
-    onTap:()=> signUserOut()
-    );
+Widget buildLogout(BuildContext context) => SimpleSettingsTile(
+    title: 'Logout', subtitle: '', leading: const Icon(Icons.logout),
+    onTap: () async { showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Logout"),
+            content: const Text("Are you sure you want to logout?"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Cancel"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: const Text("Yes"),
+                onPressed:  () async {
+                  
+                  signUserOut();
+                  Navigator.of(context).pop();}
+            
+              ),
+            ],
+          );
+        },
+      );
+    }
+);
 
-Widget buildDeleteAccount() => SimpleSettingsTile(
+
+Widget buildDeleteAccount(BuildContext context) => SimpleSettingsTile(
     title: 'Delete Account', subtitle: '', leading: const Icon(Icons.delete),
-    onTap: () async {
-      FirebaseAuth.instance.currentUser?.delete();
-        //await FirebaseAuth.instance.signOut();
-
-}
-    );
+    onTap: () async { showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Delete Account"),
+            content: const Text("Are you sure you want to delete your account?"),
+            actions: <Widget>[
+              TextButton(
+                child: const Text("Cancel"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: const Text("Delete"),
+                onPressed:  () async {
+                  
+                  FirebaseAuth.instance.currentUser?.delete();
+                  Navigator.of(context).pop();}
+            
+              ),
+            ],
+          );
+        },
+      );
+    }
+);
 
 void signUserOut(){
   FirebaseAuth.instance.signOut();
