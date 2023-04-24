@@ -2,7 +2,6 @@
 .dart_tool/
 build/
 pubspec.lock
-lib/firebase_options.dart
 ios/Runner/GoogleService-Info.plist
 android/app/google-services.json
 tempFile/
