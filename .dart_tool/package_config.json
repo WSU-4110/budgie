@@ -10,6 +10,7 @@
     {
       "name": "adaptive_theme",
       "rootUri": "file:///Users/jaynama/.pub-cache/hosted/pub.dev/adaptive_theme-3.2.0",
+      "rootUri": "file:///Users/jaynama/.pub-cache/hosted/pub.dev/adaptive_theme-3.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -458,7 +459,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-04-24T01:29:28.183768Z",
+  "generated": "2023-04-09T03:12:29.178549Z",
   "generator": "pub",
   "generatorVersion": "2.19.2"
 }
